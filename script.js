@@ -78,7 +78,7 @@ function selectUniversity() {
     showProfilePage(); // Show the profile page after selecting university
 }
 
-// Show user profile page
+// Show user profile page and events
 function showProfilePage() {
     document.getElementById('universitySelection').style.display = 'none';
     const userEmail = localStorage.getItem('userEmail');
@@ -105,7 +105,7 @@ function showEvents(university) {
             updatesDiv.appendChild(eventElement);
         });
     } else {
-        updatesDiv.innerHTML = '<p>No events available.</p>';
+        updatesDiv.innerHTML = '<p>No events available for this university.</p>';
     }
 }
 

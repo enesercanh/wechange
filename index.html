@@ -9,21 +9,11 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        #loginForm, #universitySelection, #profilePage, #profileModal {
+        #loginForm, #universitySelection, #updates {
             margin: 20px;
         }
-        #profileModal {
-            display: none;
-            position: fixed;
-            top: 20%;
-            left: 30%;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-        }
-        textarea {
-            width: 100%;
-            height: 80px;
+        #updates p {
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -48,24 +38,10 @@
         <button onclick="selectUniversity()">Submit</button>
     </div>
 
-    <!-- Profile Page -->
-    <div id="profilePage" style="display:none;">
-        <h2>User Profile</h2>
-        <p>Email: <span id="profileEmail"></span></p>
-        <p>University: <span id="profileUniversity"></span></p>
-        <p>Bio: <span id="profileBio"></span></p>
-        <button onclick="openProfileModal()">Edit Bio</button>
-        <div id="updates"></div>
-    </div>
-
-    <!-- Profile Edit Modal -->
-    <div id="profileModal">
-        <div>
-            <h3>Edit Bio</h3>
-            <textarea id="bioInput"></textarea>
-            <button onclick="updateBio()">Save</button>
-            <button onclick="closeProfileModal()">Cancel</button>
-        </div>
+    <!-- Events Display -->
+    <div id="updates" style="display:none;">
+        <h2>Upcoming Events</h2>
+        <div id="eventsList"></div>
     </div>
 
     <script src="app.js"></script>

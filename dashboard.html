@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h2>Welcome, [User's Name]</h2>
+        <div class="menu">
+            <button onclick="showEvents()">Events</button>
+            <button onclick="showRankings()">University Rankings</button>
+            <button onclick="viewProfile()">Profile</button>
+            <button onclick="goToChat()">Chat</button>
+            <button onclick="showNews()">News</button>
+            <button onclick="contactUs()">Contact Us</button>
+        </div>
+
+        <!-- Events Section -->
+        <div id="eventsSection" style="display:none;">
+            <h3>Select University to See Events</h3>
+            <select id="universitySelect" onchange="showUniversityEvents()">
+                <option value="none">--Select University--</option>
+                <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
+                <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
+                <option value="University of Technology">University of Technology</option>
+            </select>
+            <div id="eventsList"></div>
+        </div>
+
+        <!-- University Rankings Section -->
+        <div id="rankingsSection" style="display:none;">
+            <h3>University Rankings</h3>
+            <ul id="universityRanks">
+                <li>University of Baghdad Jadriya - 1000 points</li>
+                <li>American University of Iraq Baghdad - 800 points</li>
+                <li>University of Technology - 500 points</li>
+            </ul>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profileSection" style="display:none;">
+            <h3>Your Profile</h3>
+            <p>Name: [User's Name]</p>
+            <p>Email: [User's Email]</p>
+            <button onclick="editProfile()">Edit Profile</button>
+        </div>
+
+        <!-- News Section -->
+        <div id="newsSection" style="display:none;">
+            <h3>Latest News</h3>
+            <ul id="newsList">
+                <li>University of Baghdad hosts a new research conference.</li>
+                <li>American University of Iraq Baghdad launches a new career fair program.</li>
+                <li>University of Technology students win national awards in tech innovation.</li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contactSection" style="display:none;">
+            <h3>Contact We Change Executive</h3>
+            <p>If you have any issues, feel free to reach out to us:</p>
+            <p>Email: support@wechangeteam.org</p>
+        </div>
+    </div>
+
+    <script>
+        // Display events based on university selection
+        function showEvents() {
+            document.getElementById("eventsSection").style.display = "block";
+            document.getElementById("rankingsSection").style.display = "none";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("newsSection").style.display = "none";
+            document.getElementById("contactSection").style.display = "none";
+        }
+
+        function showUniversityEvents() {
+            const selectedUniversity = document.getElementById("universitySelect").value;
+            const eventsList = document.getElementById("eventsList");
+            if (selectedUniversity === "University of Baghdad Jadriya") {
+                eventsList.innerHTML = "<p>Event 1: Research Conference on AI</p><p>Event 2: Career Fair for Engineers</p>";
+            } else if (selectedUniversity === "American University of Iraq Baghdad") {
+                eventsList.innerHTML = "<p>Event 1: International Student Meet-up</p><p>Event 2: Business Entrepreneurship Workshop</p>";
+            } else if (selectedUniversity === "University of Technology") {
+                eventsList.innerHTML = "<p>Event 1: Robotics Innovation Hackathon</p><p>Event 2: Tech Symposium</p>";
+            } else {
+                eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
+            }
+        }
+
+        function showRankings() {
+            document.getElementById("eventsSection").style.display = "none";
+            document.getElementById("rankingsSection").style.display = "block";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("newsSection").style.display = "none";
+            document.getElementById("contactSection").style.display = "none";
+        }
+
+        function viewProfile() {
+            document.getElementById("eventsSection").style.display = "none";
+            document.getElementById("rankingsSection").style.display = "none";
+            document.getElementById("profileSection").style.display = "block";
+            document.getElementById("newsSection").style.display = "none";
+            document.getElementById("contactSection").style.display = "none";
+        }
+
+        function goToChat() {
+            alert("Chat feature coming soon!");
+        }
+
+        function showNews() {
+            document.getElementById("eventsSection").style.display = "none";
+            document.getElementById("rankingsSection").style.display = "none";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("newsSection").style.display = "block";
+            document.getElementById("contactSection").style.display = "none";
+        }
+
+        function contactUs() {
+            document.getElementById("eventsSection").style.display = "none";
+            document.getElementById("rankingsSection").style.display = "none";
+            document.getElementById("profileSection").style.display = "none";
+            document.getElementById("newsSection").style.display = "none";
+            document.getElementById("contactSection").style.display = "block";
+        }
+    </script>
+</body>
+</html>

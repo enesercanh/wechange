@@ -1,3 +1,4 @@
+/* Base Styles for Light Mode */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0faff; /* Light Blue Background */
@@ -120,4 +121,67 @@ ul {
     margin-bottom: 10px;
     border-radius: 8px;
     font-size: 1.1rem;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #fff;
+}
+
+.dark-mode .dashboard-container {
+    background-color: #1e1e1e;
+    border-radius: 15px;
+}
+
+.dark-mode .header h1 {
+    color: #bb86fc; /* Light Purple for Dark Mode */
+}
+
+.dark-mode .menu-button {
+    background-color: #6200ea; /* Purple Button */
+    color: #fff;
+}
+
+.dark-mode .menu-button:hover {
+    background-color: #3700b3; /* Darker Purple */
+}
+
+.dark-mode .content-section {
+    background-color: #1e1e1e;
+}
+
+.dark-mode h2 {
+    color: #bb86fc; /* Light Purple Titles */
+}
+
+.dark-mode select {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.dark-mode ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dark-mode .rank-list li {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .profile-card {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .edit-profile {
+    background-color: #6200ea; /* Purple for Edit Button */
+    color: white;
+}
+
+.dark-mode .news-list li {
+    background-color: #333;
+    color: #fff;
 }

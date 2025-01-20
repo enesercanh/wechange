@@ -39,6 +39,17 @@
             <button onclick="selectUniversity()">Confirm Selection</button>
         </div>
 
+        <!-- Profile Section -->
+        <div id="profilePage" style="display:none;">
+            <h2>Your Profile</h2>
+            <p>Email: <span id="profileEmail"></span></p>
+            <p>University: <span id="profileUniversity"></span></p>
+            <p>Bio: <span id="profileBio"></span></p>
+            <textarea id="bioInput" placeholder="Update your bio..."></textarea>
+            <button onclick="updateBio()">Update Bio</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+
         <div id="communityPage" style="display:none;">
             <h2>Community Updates</h2>
             <div id="updates"></div>

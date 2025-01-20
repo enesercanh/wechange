@@ -78,8 +78,19 @@ function showEventsPage() {
     }
 }
 
-// Go back to university selection page
-function goBack() {
-    document.getElementById('updates').style.display = 'none';
-    document.getElementById('universitySelection').style.display = 'block';
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    const isDarkMode = body.classList.toggle('dark-mode');
+    
+    // Save the user's preference to localStorage
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 }
+
+// Check if dark mode was previously enabled
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeSetting = localStorage.getItem('darkMode');
+    if (darkModeSetting === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+});

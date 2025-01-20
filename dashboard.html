@@ -104,12 +104,60 @@
         function showUniversityEvents() {
             const selectedUniversity = document.getElementById("universitySelect").value;
             const eventsList = document.getElementById("eventsList");
-            if (selectedUniversity === "University of Baghdad Jadriya") {
-                eventsList.innerHTML = "<p>Event 1: Research Conference on AI</p><p>Event 2: Career Fair for Engineers</p>";
+               if (selectedUniversity === "University of Baghdad Jadriya") {
+                eventsList.innerHTML = `
+                    <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI
+                        <div id="baghdadEvent1Details" class="event-details">
+                            <h3>Theme: "Innovating for Progress: Student Research for a Better Tomorrow"</h3>
+                            <p>Date: March 20, 2025 - 9:00 AM to 5:00 PM</p>
+                            <p>Location: University of Baghdad, Conference Hall</p>
+                            <p>Event Overview: This Research Conference is an opportunity for We Change members to showcase their research...</p>
+                            <p>Registration: Register by March 10, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                    <li onclick="toggleEventDetails('baghdadEvent2Details')">Career Fair for Engineers
+                        <div id="baghdadEvent2Details" class="event-details">
+                            <h3>Theme: "Building the Future: Engineering Careers for We Change Members"</h3>
+                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                            <p>Location: University of Baghdad, Engineering Building</p>
+                            <p>Event Overview: The Career Fair for Engineers is a We Change exclusive event...</p>
+                            <p>Registration: Sign up by April 3, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                `;
             } else if (selectedUniversity === "American University of Iraq Baghdad") {
-                eventsList.innerHTML = "<p>Event 1: International Student Meet-up</p><p>Event 2: Business Entrepreneurship Workshop</p>";
+                eventsList.innerHTML = `
+                    <li onclick="toggleEventDetails('auibEvent1Details')">International Student Meet-Up
+                        <div id="auibEvent1Details" class="event-details">
+                            <h3>Theme: "Cultural Connections: Building a Global Community at AUIB"</h3>
+                            <p>Date: March 22, 2025 - 5:00 PM to 8:00 PM</p>
+                            <p>Location: AUIB, Main Atrium</p>
+                            <p>Event Overview: A cultural meet-up for international students to share...</p>
+                            <p>Registration: Sign up by March 15, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                    <li onclick="toggleEventDetails('auibEvent2Details')">Business Entrepreneurship Workshop
+                        <div id="auibEvent2Details" class="event-details">
+                            <h3>Theme: "Empowering We Change Entrepreneurs: Turning Ideas Into Impact"</h3>
+                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                            <p>Location: AUIB, Business and Innovation Center</p>
+                            <p>Event Overview: A workshop focused on essential entrepreneurship concepts...</p>
+                            <p>Registration: Register by April 3, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                `;
             } else if (selectedUniversity === "University of Technology") {
-                eventsList.innerHTML = "<p>Event 1: Robotics Innovation Hackathon</p><p>Event 2: Tech Symposium</p>";
+                eventsList.innerHTML = `
+                    <li onclick="toggleEventDetails('uotEvent1Details')">Robotics Innovation Hackathon
+                        <div id="uotEvent1Details" class="event-details">
+                            <h3>Theme: "Innovative Robotics Solutions by We Change Members"</h3>
+                            <p>Date: May 5-6, 2025 - 9:00 AM (Day 1) to 6:00 PM (Day 2)</p>
+                            <p>Location: University of Technology, Robotics and Automation Lab</p>
+                            <p>Event Overview: A hackathon for creating innovative robotics solutions...</p>
+                            <p>Registration: Register via the We Change portal.</p>
+                        </div>
+                    </li>
+                `;
             } else {
                 eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
             }

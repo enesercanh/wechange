@@ -79,11 +79,24 @@
         <div id="newsSection" class="content-section" style="display:none;">
             <h2>Latest News</h2>
             <ul id="newsList" class="news-list">
-                <li>University of Baghdad hosts a new research conference.</li>
-
-                <li>American University of Iraq Baghdad launches a new career fair program.</li>
-
-                <li>University of Technology students win national awards in tech innovation.</li>                
+                <li onclick="toggleNewsDetails('news1Details')">University of Baghdad hosts a new research conference.
+                    <div id="news1Details" class="news-details">
+                        <h3>Details:</h3>
+                        <p>The University of Baghdad is hosting a new research conference on March 15, 2025, focused on AI and Robotics. Scholars and innovators from across Iraq will present their groundbreaking work in various fields.</p>
+                    </div>
+                </li>
+                <li onclick="toggleNewsDetails('news2Details')">American University of Iraq Baghdad launches a new career fair program.
+                    <div id="news2Details" class="news-details">
+                        <h3>Details:</h3>
+                        <p>The American University of Iraq Baghdad will be launching its new career fair program in April 2025. The event will connect students with top international companies for internship and job opportunities.</p>
+                    </div>
+                </li>
+                <li onclick="toggleNewsDetails('news3Details')">University of Technology students win national awards in tech innovation.
+                    <div id="news3Details" class="news-details">
+                        <h3>Details:</h3>
+                        <p>University of Technology students have won national awards for their innovative contributions in robotics and AI. Their inventions are expected to impact the future of technology in Iraq.</p>
+                    </div>
+                </li>                
             </ul>
         </div>
 
@@ -179,8 +192,13 @@
             alert("Chat feature coming soon!");
         }
 
-        function showNews() {
-            toggleSections("newsSection");
+        function toggleNewsDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
+            }
         }
 
         function contactUs() {

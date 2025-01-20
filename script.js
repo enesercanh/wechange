@@ -62,8 +62,6 @@ function selectUniversity() {
 // Show user profile page
 function showProfilePage() {
     document.getElementById('universitySelection').style.display = 'none';
-    document.getElementById('profilePage').style.display = 'block';
-
     const userEmail = localStorage.getItem('userEmail');
     const userUniversity = localStorage.getItem('selectedUniversity');
     const userBio = localStorage.getItem('userBio') || "No bio set yet."; // Default bio message
@@ -80,39 +78,26 @@ function updateBio() {
     showProfilePage(); // Refresh profile page with updated bio
 }
 
-// Show community updates based on university selection
-function showCommunityPage() {
-    document.getElementById('profilePage').style.display = 'none';
-    document.getElementById('communityPage').style.display = 'block';
+// Open the profile modal
+function openProfileModal() {
+    document.getElementById('profileModal').style.display = 'flex';
+    const userEmail = localStorage.getItem('userEmail');
+    const userUniversity = localStorage.getItem('selectedUniversity');
+    const userBio = localStorage.getItem('userBio') || "No bio set yet."; // Default bio message
 
-    const updates = document.getElementById('updates');
-    let universityUpdates = '';
+    document.getElementById('profileEmail').innerText = userEmail;
+    document.getElementById('profileUniversity').innerText = userUniversity;
+    document.getElementById('profileBio').innerText = userBio;
+}
 
-    // Display updates based on university
-    if (selectedUniversity === "University of Baghdad Jadriya") {
-        universityUpdates = `
-            <p>Event 1: Meeting on Saturday at 10 AM</p>
-            <p>Event 2: Community cleanup on Sunday</p>
-        `;
-    } else if (selectedUniversity === "American University of Iraq Baghdad") {
-        universityUpdates = `
-            <p>Event 1: Tech Talk on Monday at 3 PM</p>
-            <p>Event 2: Career fair on Friday</p>
-        `;
-    } else if (selectedUniversity === "University of Technology") {
-        universityUpdates = `
-            <p>Event 1: Research seminar on Thursday at 12 PM</p>
-            <p>Event 2: Campus social event on Saturday</p>
-        `;
-    }
-
-    updates.innerHTML = universityUpdates; // Display updates for the selected university
+// Close the profile modal
+function closeProfileModal() {
+    document.getElementById('profileModal').style.display = 'none';
 }
 
 // Logout function
 function logout() {
     loggedIn = false;
     document.getElementById('communityPage').style.display = 'none';
-    document.getElementById('profilePage').style.display = 'none';
     document.getElementById('auth').style.display = 'block';
 }

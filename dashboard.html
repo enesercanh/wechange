@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .university-details {
-            display: none;
+            display: none; /* Hide details by default */
             margin-top: 10px;
             padding: 10px;
             background-color: #f9f9f9;
@@ -107,105 +107,78 @@
 
             if (selectedUniversity === "University of Baghdad Jadriya") {
                 eventsList.innerHTML = `
-                    <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI
-                        <div id="baghdadEvent1Details" class="event-details">
-                            <h3>Theme: "Innovating for Progress: Student Research for a Better Tomorrow"</h3>
-                            <p>Date: March 20, 2025 - 9:00 AM to 5:00 PM</p>
-                            <p>Location: University of Baghdad, Conference Hall</p>
-                            <p>Event Overview: This Research Conference is an opportunity for We Change members to showcase their research...</p>
-                            <p>Registration: Register by March 10, 2025, via the We Change portal.</p>
-                        </div>
-                    </li>
-                    <li onclick="toggleEventDetails('baghdadEvent2Details')">Career Fair for Engineers
-                        <div id="baghdadEvent2Details" class="event-details">
-                            <h3>Theme: "Building the Future: Engineering Careers for We Change Members"</h3>
-                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
-                            <p>Location: University of Baghdad, Engineering Building</p>
-                            <p>Event Overview: The Career Fair for Engineers is a We Change exclusive event...</p>
-                            <p>Registration: Sign up by April 3, 2025, via the We Change portal.</p>
-                        </div>
-                    </li>
+                    <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI</li>
+                    <div id="baghdadEvent1Details" class="event-details">
+                        <h3>Theme: "Innovating for Progress: Student Research for a Better Tomorrow"</h3>
+                        <p>Date: March 20, 2025 - 9:00 AM to 5:00 PM</p>
+                        <p>Location: University of Baghdad, Conference Hall</p>
+                        <p>Event Overview: This Research Conference is an opportunity for We Change members to showcase their research...</p>
+                        <p>Registration: Register by March 10, 2025, via the We Change portal.</p>
+                    </div>
+                    <li onclick="toggleEventDetails('baghdadEvent2Details')">Career Fair for Engineers</li>
+                    <div id="baghdadEvent2Details" class="event-details">
+                        <h3>Theme: "Building the Future: Engineering Careers for We Change Members"</h3>
+                        <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                        <p>Location: University of Baghdad, Engineering Building</p>
+                        <p>Event Overview: The Career Fair for Engineers is a We Change exclusive event...</p>
+                        <p>Registration: Sign up by April 3, 2025, via the We Change portal.</p>
+                    </div>
                 `;
             } else if (selectedUniversity === "American University of Iraq Baghdad") {
                 eventsList.innerHTML = `
-                    <li onclick="toggleEventDetails('auibEvent1Details')">International Student Meet-Up
-                        <div id="auibEvent1Details" class="event-details">
-                            <h3>Theme: "Cultural Connections: Building a Global Community at AUIB"</h3>
-                            <p>Date: March 22, 2025 - 5:00 PM to 8:00 PM</p>
-                            <p>Location: AUIB, Main Atrium</p>
-                            <p>Event Overview: A cultural meet-up for international students to share...</p>
-                            <p>Registration: Sign up by March 15, 2025, via the We Change portal.</p>
-                        </div>
-                    </li>
-                    <li onclick="toggleEventDetails('auibEvent2Details')">Business Entrepreneurship Workshop
-                        <div id="auibEvent2Details" class="event-details">
-                            <h3>Theme: "Empowering We Change Entrepreneurs: Turning Ideas Into Impact"</h3>
-                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
-                            <p>Location: AUIB, Business and Innovation Center</p>
-                            <p>Event Overview: A workshop focused on essential entrepreneurship concepts...</p>
-                            <p>Registration: Register by April 3, 2025, via the We Change portal.</p>
-                        </div>
-                    </li>
+                    <li onclick="toggleEventDetails('auibEvent1Details')">International Student Meet-Up</li>
+                    <div id="auibEvent1Details" class="event-details">
+                        <h3>Theme: "Cultural Connections: Building a Global Community at AUIB"</h3>
+                        <p>Date: March 22, 2025 - 5:00 PM to 8:00 PM</p>
+                        <p>Location: AUIB, Main Atrium</p>
+                        <p>Event Overview: A cultural meet-up for international students to share...</p>
+                        <p>Registration: Sign up by March 15, 2025, via the We Change portal.</p>
+                    </div>
+                    <li onclick="toggleEventDetails('auibEvent2Details')">Business Entrepreneurship Workshop</li>
+                    <div id="auibEvent2Details" class="event-details">
+                        <h3>Theme: "Empowering We Change Entrepreneurs: Turning Ideas Into Impact"</h3>
+                        <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                        <p>Location: AUIB, Business and Innovation Center</p>
+                        <p>Event Overview: A workshop focused on essential entrepreneurship concepts...</p>
+                        <p>Registration: Register by April 3, 2025, via the We Change portal.</p>
+                    </div>
                 `;
             } else if (selectedUniversity === "University of Technology") {
                 eventsList.innerHTML = `
-                    <li onclick="toggleEventDetails('uotEvent1Details')">Robotics Innovation Hackathon
-                        <div id="uotEvent1Details" class="event-details">
-                            <h3>Theme: "Innovative Robotics Solutions by We Change Members"</h3>
-                            <p>Date: May 5-6, 2025 - 9:00 AM (Day 1) to 6:00 PM (Day 2)</p>
-                            <p>Location: University of Technology, Robotics and Automation Lab</p>
-                            <p>Event Overview: A hackathon for creating innovative robotics solutions...</p>
-                            <p>Registration: Register via the We Change portal.</p>
-                        </div>
-                    </li>
+                    <li onclick="toggleEventDetails('uotEvent1Details')">Robotics Innovation Hackathon</li>
+                    <div id="uotEvent1Details" class="event-details">
+                        <h3>Theme: "Innovative Robotics Solutions by We Change Members"</h3>
+                        <p>Date: March 25, 2025 - 9:00 AM to 6:00 PM</p>
+                        <p>Location: University of Technology, Robotics Lab</p>
+                        <p>Event Overview: A hackathon dedicated to the development of innovative robotics...</p>
+                        <p>Registration: Register by March 18, 2025, via the We Change portal.</p>
+                    </div>
+                    <li onclick="toggleEventDetails('uotEvent2Details')">Tech Talk on Future of AI</li>
+                    <div id="uotEvent2Details" class="event-details">
+                        <h3>Theme: "Exploring the Future of AI with We Change Members"</h3>
+                        <p>Date: April 12, 2025 - 11:00 AM to 2:00 PM</p>
+                        <p>Location: University of Technology, AI Conference Room</p>
+                        <p>Event Overview: Join us for an insightful talk on the future of artificial intelligence...</p>
+                        <p>Registration: Sign up by April 5, 2025, via the We Change portal.</p>
+                    </div>
                 `;
-            } else {
-                eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
             }
         }
 
-        function showRankings() {
-            toggleSections("rankingsSection");
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            details.style.display = details.style.display === "block" ? "none" : "block";
         }
 
-        function viewProfile() {
-            toggleSections("profileSection");
-        }
-
-        function goToChat() {
-            alert("Chat feature coming soon!");
-        }
-
-        function showNews() {
-            toggleSections("newsSection");
-        }
-
-        function contactUs() {
-            toggleSections("contactSection");
+        function toggleEventDetails(id) {
+            const details = document.getElementById(id);
+            details.style.display = details.style.display === "block" ? "none" : "block";
         }
 
         function toggleSections(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
+            const sections = document.querySelectorAll(".content-section");
             sections.forEach(section => section.style.display = "none");
             document.getElementById(sectionId).style.display = "block";
-        }
-
-         function toggleEventDetails(detailsId) {
-            const detailsElement = document.getElementById(detailsId);
-            if (detailsElement.style.display === "block") {
-                detailsElement.style.display = "none";
-            } else {
-                detailsElement.style.display = "block";
-            }
-        }
-
-        function toggleDetails(detailsId) {
-            const detailsElement = document.getElementById(detailsId);
-            if (detailsElement.style.display === "block") {
-                detailsElement.style.display = "none";
-            } else {
-                detailsElement.style.display = "block";
-            }
         }
     </script>
 </body>

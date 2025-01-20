@@ -104,7 +104,8 @@
         function showUniversityEvents() {
             const selectedUniversity = document.getElementById("universitySelect").value;
             const eventsList = document.getElementById("eventsList");
-               if (selectedUniversity === "University of Baghdad Jadriya") {
+
+            if (selectedUniversity === "University of Baghdad Jadriya") {
                 eventsList.innerHTML = `
                     <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI
                         <div id="baghdadEvent1Details" class="event-details">

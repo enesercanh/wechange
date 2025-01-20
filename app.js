@@ -22,12 +22,12 @@ const users = {
     "faosa414@gmail.com": {
         email: "faosa414@gmail.com",
         password: "Faos@2025Str0ngPass",  // A strong password
-        bio: "Hello, I'm Sami, the top biotech in Iraq"
+        bio: "Hello, I'm Faosa, a tech enthusiast!"
     },
     "laviier1994@gmail.com": {
         email: "laviier1994@gmail.com",
         password: "L@vi1er1994_StrongPwd",  // A strong password
-        bio: "Hi, I'm Haneen, the best med student in the country."
+        bio: "Hi, I'm Laviier, a student at University of Technology."
     }
 };
 

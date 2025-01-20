@@ -1,6 +1,6 @@
 let loggedIn = false;
-let isModerator = false;
 let selectedUniversity = "";
+let userBio = "";
 
 // Show the login form
 function showLogin() {
@@ -56,12 +56,33 @@ function showUniversitySelection() {
 function selectUniversity() {
     selectedUniversity = document.getElementById('universitySelect').value;
     localStorage.setItem('selectedUniversity', selectedUniversity); // Save the selection
-    showCommunityPage(); // Show the community page after selecting university
+    showProfilePage(); // Show the profile page after selecting university
+}
+
+// Show user profile page
+function showProfilePage() {
+    document.getElementById('universitySelection').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'block';
+
+    const userEmail = localStorage.getItem('userEmail');
+    const userUniversity = localStorage.getItem('selectedUniversity');
+    const userBio = localStorage.getItem('userBio') || "No bio set yet."; // Default bio message
+
+    document.getElementById('profileEmail').innerText = userEmail;
+    document.getElementById('profileUniversity').innerText = userUniversity;
+    document.getElementById('profileBio').innerText = userBio;
+}
+
+// Update user bio
+function updateBio() {
+    const newBio = document.getElementById('bioInput').value;
+    localStorage.setItem('userBio', newBio);
+    showProfilePage(); // Refresh profile page with updated bio
 }
 
 // Show community updates based on university selection
 function showCommunityPage() {
-    document.getElementById('universitySelection').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'none';
     document.getElementById('communityPage').style.display = 'block';
 
     const updates = document.getElementById('updates');
@@ -92,5 +113,6 @@ function showCommunityPage() {
 function logout() {
     loggedIn = false;
     document.getElementById('communityPage').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'none';
     document.getElementById('auth').style.display = 'block';
 }

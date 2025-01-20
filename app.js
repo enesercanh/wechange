@@ -77,3 +77,9 @@ function showEventsPage() {
         eventsList.innerHTML = '<p>No events available for this university.</p>';
     }
 }
+
+// Go back to university selection page
+function goBack() {
+    document.getElementById('updates').style.display = 'none';
+    document.getElementById('universitySelection').style.display = 'block';
+}

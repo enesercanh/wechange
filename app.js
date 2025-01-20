@@ -104,7 +104,7 @@ function updateBio() {
 
 // Open the profile modal
 function openProfileModal() {
-    document.getElementById('profileModal').style.display = 'flex';
+    document.getElementById('profileModal').style.display = 'block';
     const userEmail = localStorage.getItem('userEmail');
     const userBio = users[userEmail].bio || "No bio set yet.";
     document.getElementById('bioInput').value = userBio;

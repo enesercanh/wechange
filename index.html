@@ -25,8 +25,13 @@
             const password = document.getElementById("password").value;
             
             // Dummy check for the credentials (simplified)
-            if ((email === "faosa414@gmail.com" && password === "strongpassword1") || 
-                (email === "laviier1994@gmail.com" && password === "strongpassword2")) {
+            if (email === "faosa414@gmail.com" && password === "Faos@2025Str0ngPass") {
+                localStorage.setItem('username', 'Sami');
+                localStorage.setItem('userEmail', email);
+                window.location.href = "dashboard.html"; // Redirect to the dashboard
+            } else if (email === "laviier1994@gmail.com" && password === "L@vi1er1994_StrongPwd") {
+                localStorage.setItem('username', 'Haneen');
+                localStorage.setItem('userEmail', email);
                 window.location.href = "dashboard.html"; // Redirect to the dashboard
             } else {
                 alert("Invalid credentials");

@@ -21,13 +21,11 @@ const events = {
 const users = {
     "faosa414@gmail.com": {
         email: "faosa414@gmail.com",
-        password: "Faos@2025Str0ngPass",  // A strong password
-        bio: "Hello, I'm Faosa, a tech enthusiast!"
+        password: "Faos@2025Str0ngPass"  // A strong password
     },
     "laviier1994@gmail.com": {
         email: "laviier1994@gmail.com",
-        password: "L@vi1er1994_StrongPwd",  // A strong password
-        bio: "Hi, I'm Laviier, a student at University of Technology."
+        password: "L@vi1er1994_StrongPwd"  // A strong password
     }
 };
 
@@ -56,61 +54,26 @@ function showUniversitySelection() {
 function selectUniversity() {
     const selectedUniversity = document.getElementById('universitySelect').value;
     localStorage.setItem('selectedUniversity', selectedUniversity);
-    showProfilePage();
+    showEventsPage();
 }
 
-// Show user profile page and events
-function showProfilePage() {
-    const userEmail = localStorage.getItem('userEmail');
+// Show events for the selected university
+function showEventsPage() {
     const userUniversity = localStorage.getItem('selectedUniversity');
-    const userBio = users[userEmail].bio || "No bio set yet.";
-
     document.getElementById('universitySelection').style.display = 'none';
-    document.getElementById('profilePage').style.display = 'block';
-    document.getElementById('profileEmail').innerText = userEmail;
-    document.getElementById('profileUniversity').innerText = userUniversity;
-    document.getElementById('profileBio').innerText = userBio;
+    document.getElementById('updates').style.display = 'block';
 
     // Show events for the selected university
-    showEvents(userUniversity);
-}
+    const eventsList = document.getElementById('eventsList');
+    eventsList.innerHTML = ''; // Clear any previous events
 
-// Display events based on the selected university
-function showEvents(university) {
-    const updatesDiv = document.getElementById('updates');
-    updatesDiv.innerHTML = ''; // Clear any previous updates
-
-    if (events[university]) {
-        events[university].forEach(event => {
+    if (events[userUniversity]) {
+        events[userUniversity].forEach(event => {
             const eventElement = document.createElement('p');
             eventElement.textContent = event;
-            updatesDiv.appendChild(eventElement);
+            eventsList.appendChild(eventElement);
         });
     } else {
-        updatesDiv.innerHTML = '<p>No events available for this university.</p>';
+        eventsList.innerHTML = '<p>No events available for this university.</p>';
     }
-}
-
-// Update user bio
-function updateBio() {
-    const newBio = document.getElementById('bioInput').value;
-    const userEmail = localStorage.getItem('userEmail');
-    
-    // Update bio in 'database'
-    users[userEmail].bio = newBio;
-
-    showProfilePage(); // Refresh profile page with updated bio
-}
-
-// Open the profile modal
-function openProfileModal() {
-    document.getElementById('profileModal').style.display = 'block';
-    const userEmail = localStorage.getItem('userEmail');
-    const userBio = users[userEmail].bio || "No bio set yet.";
-    document.getElementById('bioInput').value = userBio;
-}
-
-// Close the profile modal
-function closeProfileModal() {
-    document.getElementById('profileModal').style.display = 'none';
 }

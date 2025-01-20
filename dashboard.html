@@ -189,6 +189,15 @@
             document.getElementById(sectionId).style.display = "block";
         }
 
+         function toggleEventDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
+            }
+        }
+
         function toggleDetails(detailsId) {
             const detailsElement = document.getElementById(detailsId);
             if (detailsElement.style.display === "block") {

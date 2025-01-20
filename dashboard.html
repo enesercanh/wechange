@@ -192,13 +192,8 @@
             alert("Chat feature coming soon!");
         }
 
-        function toggleNewsDetails(detailsId) {
-            const detailsElement = document.getElementById(detailsId);
-            if (detailsElement.style.display === "block") {
-                detailsElement.style.display = "none";
-            } else {
-                detailsElement.style.display = "block";
-            }
+        function showNews() {
+            toggleSections("newsSection");
         }
 
         function contactUs() {
@@ -212,6 +207,15 @@
         }
 
         function toggleEventDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
+            }
+        }
+
+        function toggleNewsDetails(detailsId) {
             const detailsElement = document.getElementById(detailsId);
             if (detailsElement.style.display === "block") {
                 detailsElement.style.display = "none";

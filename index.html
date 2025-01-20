@@ -3,46 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>University Community</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Login & Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #loginForm, #universitySelection, #profilePage, #profileModal {
+            margin: 20px;
+        }
+        #profileModal {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 30%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Login Form -->
     <div id="loginForm">
-        <input type="email" id="loginEmail" placeholder="Email" />
-        <input type="password" id="loginPassword" placeholder="Password" />
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Enter your email" required />
+        <input type="password" id="loginPassword" placeholder="Enter your password" required />
         <button onclick="login()">Login</button>
     </div>
 
-    <div id="universitySelection" style="display: none;">
-        <h2>Select Your University</h2>
+    <!-- University Selection Page -->
+    <div id="universitySelection" style="display:none;">
+        <h2>Select your University</h2>
         <select id="universitySelect">
             <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
             <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
             <option value="University of Technology">University of Technology</option>
         </select>
-        <button onclick="selectUniversity()">Confirm</button>
+        <button onclick="selectUniversity()">Submit</button>
     </div>
 
-    <div id="profilePage" style="display: none;">
-        <h2>Profile</h2>
+    <!-- Profile Page -->
+    <div id="profilePage" style="display:none;">
+        <h2>User Profile</h2>
         <p>Email: <span id="profileEmail"></span></p>
         <p>University: <span id="profileUniversity"></span></p>
         <p>Bio: <span id="profileBio"></span></p>
         <button onclick="openProfileModal()">Edit Bio</button>
-
         <div id="updates"></div>
     </div>
 
-    <div id="profileModal" style="display: none;">
-        <div class="content">
-            <h2>Edit Bio</h2>
-            <textarea id="bioInput" placeholder="Enter your bio"></textarea>
-            <button onclick="updateBio()">Save Bio</button>
-            <button onclick="closeProfileModal()">Close</button>
+    <!-- Profile Edit Modal -->
+    <div id="profileModal">
+        <div>
+            <h3>Edit Bio</h3>
+            <textarea id="bioInput"></textarea>
+            <button onclick="updateBio()">Save</button>
+            <button onclick="closeProfileModal()">Cancel</button>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

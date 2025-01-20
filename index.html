@@ -8,24 +8,13 @@
 </head>
 <body>
 
-    <div id="auth">
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showSignup()">Signup</button>
-    </div>
-
     <div id="loginForm">
         <input type="email" id="loginEmail" placeholder="Email" />
         <input type="password" id="loginPassword" placeholder="Password" />
         <button onclick="login()">Login</button>
     </div>
 
-    <div id="signupForm">
-        <input type="email" id="signupEmail" placeholder="Email" />
-        <input type="password" id="signupPassword" placeholder="Password" />
-        <button onclick="signup()">Signup</button>
-    </div>
-
-    <div id="universitySelection">
+    <div id="universitySelection" style="display: none;">
         <h2>Select Your University</h2>
         <select id="universitySelect">
             <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
@@ -35,17 +24,17 @@
         <button onclick="selectUniversity()">Confirm</button>
     </div>
 
-    <div id="profilePage">
+    <div id="profilePage" style="display: none;">
         <h2>Profile</h2>
         <p>Email: <span id="profileEmail"></span></p>
         <p>University: <span id="profileUniversity"></span></p>
         <p>Bio: <span id="profileBio"></span></p>
-        <button onclick="openProfileModal()">Edit Profile</button>
+        <button onclick="openProfileModal()">Edit Bio</button>
 
         <div id="updates"></div>
     </div>
 
-    <div id="profileModal">
+    <div id="profileModal" style="display: none;">
         <div class="content">
             <h2>Edit Bio</h2>
             <textarea id="bioInput" placeholder="Enter your bio"></textarea>

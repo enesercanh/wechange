@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="dashboard">
-        <h2>Welcome, <span id="username"></span></h2>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Welcome, <span id="username"></span></h1>
+        </header>
+        
         <div class="menu">
-            <button onclick="showEvents()">Events</button>
-            <button onclick="showRankings()">University Rankings</button>
-            <button onclick="viewProfile()">Profile</button>
-            <button onclick="goToChat()">Chat</button>
-            <button onclick="showNews()">News</button>
-            <button onclick="contactUs()">Contact Us</button>
+            <button onclick="showEvents()" class="menu-button">Events</button>
+            <button onclick="showRankings()" class="menu-button">University Rankings</button>
+            <button onclick="viewProfile()" class="menu-button">Profile</button>
+            <button onclick="goToChat()" class="menu-button">Chat</button>
+            <button onclick="showNews()" class="menu-button">News</button>
+            <button onclick="contactUs()" class="menu-button">Contact Us</button>
         </div>
 
-        <!-- Events Section -->
-        <div id="eventsSection" style="display:none;">
-            <h3>Select University to See Events</h3>
+        <div id="eventsSection" class="content-section" style="display:none;">
+            <h2>Select a University to See Events</h2>
             <select id="universitySelect" onchange="showUniversityEvents()">
                 <option value="none">--Select University--</option>
                 <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
@@ -30,55 +33,47 @@
             <div id="eventsList"></div>
         </div>
 
-        <!-- University Rankings Section -->
-        <div id="rankingsSection" style="display:none;">
-            <h3>University Rankings</h3>
-            <ul id="universityRanks">
-                <li>University of Baghdad Jadriya - 1000 points</li>
-                <li>American University of Iraq Baghdad - 800 points</li>
-                <li>University of Technology - 500 points</li>
+        <div id="rankingsSection" class="content-section" style="display:none;">
+            <h2>University Rankings</h2>
+            <ul id="universityRanks" class="rank-list">
+                <li><span>University of Baghdad Jadriya</span> - 1000 points</li>
+                <li><span>American University of Iraq Baghdad</span> - 800 points</li>
+                <li><span>University of Technology</span> - 500 points</li>
             </ul>
         </div>
 
-        <!-- Profile Section -->
-        <div id="profileSection" style="display:none;">
-            <h3>Your Profile</h3>
-            <p>Name: <span id="profileName"></span></p>
-            <p>Email: <span id="profileEmail"></span></p>
-            <button onclick="editProfile()">Edit Profile</button>
+        <div id="profileSection" class="content-section" style="display:none;">
+            <h2>Your Profile</h2>
+            <div class="profile-card">
+                <p>Name: <span id="profileName"></span></p>
+                <p>Email: <span id="profileEmail"></span></p>
+                <button class="edit-profile">Edit Profile</button>
+            </div>
         </div>
 
-        <!-- News Section -->
-        <div id="newsSection" style="display:none;">
-            <h3>Latest News</h3>
-            <ul id="newsList">
+        <div id="newsSection" class="content-section" style="display:none;">
+            <h2>Latest News</h2>
+            <ul id="newsList" class="news-list">
                 <li>University of Baghdad hosts a new research conference.</li>
                 <li>American University of Iraq Baghdad launches a new career fair program.</li>
                 <li>University of Technology students win national awards in tech innovation.</li>
             </ul>
         </div>
 
-        <!-- Contact Section -->
-        <div id="contactSection" style="display:none;">
-            <h3>Contact We Change Executive</h3>
+        <div id="contactSection" class="content-section" style="display:none;">
+            <h2>Contact We Change Executive</h2>
             <p>If you have any issues, feel free to reach out to us:</p>
             <p>Email: support@wechangeteam.org</p>
         </div>
     </div>
 
     <script>
-        // Display user's name from localStorage
         document.getElementById('username').textContent = localStorage.getItem('username');
         document.getElementById('profileName').textContent = localStorage.getItem('username');
         document.getElementById('profileEmail').textContent = localStorage.getItem('userEmail');
 
-        // Display events based on university selection
         function showEvents() {
-            document.getElementById("eventsSection").style.display = "block";
-            document.getElementById("rankingsSection").style.display = "none";
-            document.getElementById("profileSection").style.display = "none";
-            document.getElementById("newsSection").style.display = "none";
-            document.getElementById("contactSection").style.display = "none";
+            toggleSections("eventsSection");
         }
 
         function showUniversityEvents() {
@@ -96,19 +91,11 @@
         }
 
         function showRankings() {
-            document.getElementById("eventsSection").style.display = "none";
-            document.getElementById("rankingsSection").style.display = "block";
-            document.getElementById("profileSection").style.display = "none";
-            document.getElementById("newsSection").style.display = "none";
-            document.getElementById("contactSection").style.display = "none";
+            toggleSections("rankingsSection");
         }
 
         function viewProfile() {
-            document.getElementById("eventsSection").style.display = "none";
-            document.getElementById("rankingsSection").style.display = "none";
-            document.getElementById("profileSection").style.display = "block";
-            document.getElementById("newsSection").style.display = "none";
-            document.getElementById("contactSection").style.display = "none";
+            toggleSections("profileSection");
         }
 
         function goToChat() {
@@ -116,19 +103,17 @@
         }
 
         function showNews() {
-            document.getElementById("eventsSection").style.display = "none";
-            document.getElementById("rankingsSection").style.display = "none";
-            document.getElementById("profileSection").style.display = "none";
-            document.getElementById("newsSection").style.display = "block";
-            document.getElementById("contactSection").style.display = "none";
+            toggleSections("newsSection");
         }
 
         function contactUs() {
-            document.getElementById("eventsSection").style.display = "none";
-            document.getElementById("rankingsSection").style.display = "none";
-            document.getElementById("profileSection").style.display = "none";
-            document.getElementById("newsSection").style.display = "none";
-            document.getElementById("contactSection").style.display = "block";
+            toggleSections("contactSection");
+        }
+
+        function toggleSections(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
         }
     </script>
 </body>

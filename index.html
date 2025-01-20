@@ -3,49 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Events</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        #loginForm, #universitySelection, #updates {
-            margin: 20px;
-        }
-        #updates p {
-            margin: 5px 0;
-        }
-    </style>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <!-- Login Form -->
-    <div id="loginForm">
+    <div class="login-container">
         <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Enter your email" required />
-        <input type="password" id="loginPassword" placeholder="Enter your password" required />
-        <button onclick="login()">Login</button>
+        <form id="loginForm" onsubmit="loginUser(event)">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
 
-    <!-- University Selection Page -->
-    <div id="universitySelection" style="display:none;">
-        <h2>Select your University</h2>
-        <select id="universitySelect">
-            <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
-            <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
-            <option value="University of Technology">University of Technology</option>
-        </select>
-        <button onclick="selectUniversity()">Submit</button>
-    </div>
-
-    <!-- Events Display -->
-    <div id="updates" style="display:none;">
-        <h2>Upcoming Events</h2>
-        <div id="eventsList"></div>
-        <!-- Back button to go back to university selection -->
-        <button onclick="goBack()">Back to University Selection</button>
-    </div>
-
-    <script src="app.js"></script>
+    <script>
+        function loginUser(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            // Dummy check for the credentials (simplified)
+            if ((email === "faosa414@gmail.com" && password === "strongpassword1") || 
+                (email === "laviier1994@gmail.com" && password === "strongpassword2")) {
+                window.location.href = "dashboard.html"; // Redirect to the dashboard
+            } else {
+                alert("Invalid credentials");
+            }
+        }
+    </script>
 </body>
 </html>

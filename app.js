@@ -17,12 +17,17 @@ const events = {
     ]
 };
 
-// Simulating a pre-existing user (this would come from a database in a real app)
+// Predefined user accounts with strong passwords
 const users = {
-    "user@example.com": {
-        email: "user@example.com",
-        password: "password123",
-        bio: "Hello, I'm a student!"
+    "faosa414@gmail.com": {
+        email: "faosa414@gmail.com",
+        password: "Faos@2025Str0ngPass",  // A strong password
+        bio: "Hello, I'm Sami, the top biotech in Iraq"
+    },
+    "laviier1994@gmail.com": {
+        email: "laviier1994@gmail.com",
+        password: "L@vi1er1994_StrongPwd",  // A strong password
+        bio: "Hi, I'm Haneen, the best med student in the country."
     }
 };
 
@@ -49,7 +54,7 @@ function showUniversitySelection() {
 
 // Handle university selection
 function selectUniversity() {
-    const selectedUniversity = document.getElementById('universitySelect').value();
+    const selectedUniversity = document.getElementById('universitySelect').value;
     localStorage.setItem('selectedUniversity', selectedUniversity);
     showProfilePage();
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Community Website</h1>
+
+        <div id="auth">
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showSignup()">Signup</button>
+        </div>
+
+        <div id="loginForm" style="display:none;">
+            <h2>Login</h2>
+            <input type="text" id="loginEmail" placeholder="Enter your email">
+            <input type="password" id="loginPassword" placeholder="Enter your password">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="signupForm" style="display:none;">
+            <h2>Signup</h2>
+            <input type="text" id="signupEmail" placeholder="Enter your email">
+            <input type="password" id="signupPassword" placeholder="Enter your password">
+            <button onclick="signup()">Signup</button>
+        </div>
+
+        <div id="communityPage" style="display:none;">
+            <h2>Community Updates</h2>
+            <div id="updates"></div>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

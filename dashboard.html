@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .university-details {
+        .university-details, .event-details {
             display: none;
             margin-top: 10px;
             padding: 10px;
@@ -15,7 +15,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .rank-list li {
+        .rank-list li, .event-list li {
             cursor: pointer;
         }
     </style>
@@ -25,7 +25,7 @@
         <header class="header">
             <h1>Welcome, <span id="username"></span></h1>
         </header>
-        
+
         <div class="menu">
             <button onclick="showEvents()" class="menu-button">Events</button>
             <button onclick="showRankings()" class="menu-button">University Rankings</button>
@@ -35,6 +35,7 @@
             <button onclick="contactUs()" class="menu-button">Contact Us</button>
         </div>
 
+        <!-- Events Section -->
         <div id="eventsSection" class="content-section" style="display:none;">
             <h2>Select a University to See Events</h2>
             <select id="universitySelect" onchange="showUniversityEvents()">
@@ -43,30 +44,23 @@
                 <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
                 <option value="University of Technology">University of Technology</option>
             </select>
-            <div id="eventsList"></div>
+            <div id="eventsList" class="event-list"></div>
         </div>
 
+        <!-- University Rankings Section -->
         <div id="rankingsSection" class="content-section" style="display:none;">
             <h2>University Rankings</h2>
             <ul id="universityRanks" class="rank-list">
                 <li onclick="toggleDetails('baghdadDetails')">University of Baghdad Jadriya - 1000 points
                     <div id="baghdadDetails" class="university-details">
-                        The University of Baghdad, located in Jadriya, is Iraq's largest and oldest university, founded in 1957. Situated along the scenic Tigris River, its Jadriya campus is known for its lush greenery and modern facilities, hosting a wide range of colleges, research centers, and libraries. It serves as a hub for academic excellence and innovation, offering programs in engineering, medicine, arts, and sciences, and plays a key role in shaping Iraq's intellectual and professional landscape. The representative for this University is ............
+                        <!-- University details here -->
                     </div>
                 </li>
-                <li onclick="toggleDetails('auibDetails')">American University of Iraq Baghdad - 800 points
-                    <div id="auibDetails" class="university-details">
-                        The American University of Iraq - Baghdad (AUIB) is a prestigious institution located in the heart of Baghdad, offering a world-class, English-language education modeled after the American liberal arts system. Established in 2018, AUIB boasts state-of-the-art facilities and a vibrant campus environment. The university provides a wide range of undergraduate and graduate programs, emphasizing critical thinking, innovation, and leadership to prepare students for global challenges and opportunities. The representative for this University is ............
-                    </div>
-                </li>
-                <li onclick="toggleDetails('uotDetails')">University of Technology - 500 points
-                    <div id="uotDetails" class="university-details">
-                        The University of Technology, Baghdad (UoT) is a leading technical university in Iraq, specializing in engineering, applied sciences, and technology. Established in 1975, it is located in central Baghdad and is renowned for its focus on innovation and research in fields such as computer science, mechanical engineering, civil engineering, and renewable energy. The university plays a vital role in Iraq's technological advancement and industrial development. The representative for this University is ............
-                    </div>
-                </li>
+                <!-- Additional university details here -->
             </ul>
         </div>
 
+        <!-- Profile Section -->
         <div id="profileSection" class="content-section" style="display:none;">
             <h2>Your Profile</h2>
             <div class="profile-card">
@@ -76,15 +70,15 @@
             </div>
         </div>
 
+        <!-- News Section -->
         <div id="newsSection" class="content-section" style="display:none;">
             <h2>Latest News</h2>
             <ul id="newsList" class="news-list">
-                <li>University of Baghdad hosts a new research conference.</li>
-                <li>American University of Iraq Baghdad launches a new career fair program.</li>
-                <li>University of Technology students win national awards in tech innovation.</li>
+                <!-- News items here -->
             </ul>
         </div>
 
+        <!-- Contact Section -->
         <div id="contactSection" class="content-section" style="display:none;">
             <h2>Contact We Change Executive</h2>
             <p>If you have any issues, feel free to reach out to us:</p>
@@ -106,7 +100,7 @@
             const eventsList = document.getElementById("eventsList");
 
             if (selectedUniversity === "University of Baghdad Jadriya") {
-                eventsList.innerHTML = 
+                eventsList.innerHTML = `
                     <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI
                         <div id="baghdadEvent1Details" class="event-details">
                             <h3>Theme: "Innovating for Progress: Student Research for a Better Tomorrow"</h3>
@@ -125,9 +119,9 @@
                             <p>Registration: Sign up by April 3, 2025, via the We Change portal.</p>
                         </div>
                     </li>
-                ;
+                `;
             } else if (selectedUniversity === "American University of Iraq Baghdad") {
-                eventsList.innerHTML = 
+                eventsList.innerHTML = `
                     <li onclick="toggleEventDetails('auibEvent1Details')">International Student Meet-Up
                         <div id="auibEvent1Details" class="event-details">
                             <h3>Theme: "Cultural Connections: Building a Global Community at AUIB"</h3>
@@ -146,9 +140,9 @@
                             <p>Registration: Register by April 3, 2025, via the We Change portal.</p>
                         </div>
                     </li>
-                ;
+                `;
             } else if (selectedUniversity === "University of Technology") {
-                eventsList.innerHTML = 
+                eventsList.innerHTML = `
                     <li onclick="toggleEventDetails('uotEvent1Details')">Robotics Innovation Hackathon
                         <div id="uotEvent1Details" class="event-details">
                             <h3>Theme: "Innovative Robotics Solutions by We Change Members"</h3>
@@ -158,7 +152,7 @@
                             <p>Registration: Register via the We Change portal.</p>
                         </div>
                     </li>
-                ;
+                `;
             } else {
                 eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
             }
@@ -190,7 +184,7 @@
             document.getElementById(sectionId).style.display = "block";
         }
 
-         function toggleEventDetails(detailsId) {
+        function toggleEventDetails(detailsId) {
             const detailsElement = document.getElementById(detailsId);
             if (detailsElement.style.display === "block") {
                 detailsElement.style.display = "none";

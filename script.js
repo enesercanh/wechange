@@ -1,7 +1,3 @@
-let loggedIn = false;
-let selectedUniversity = "";
-let userBio = "";
-
 // Sample events for each university
 const events = {
     "University of Baghdad Jadriya": [
@@ -21,6 +17,20 @@ const events = {
     ]
 };
 
+// Check if user is logged in and university is selected
+window.onload = function() {
+    if (localStorage.getItem('userEmail')) {
+        showUniversitySelection();
+    } else {
+        showLogin();
+    }
+
+    const selectedUniversity = localStorage.getItem('selectedUniversity');
+    if (selectedUniversity) {
+        showProfilePage();
+    }
+}
+
 // Show the login form
 function showLogin() {
     document.getElementById('auth').style.display = 'none';
@@ -37,13 +47,13 @@ function showSignup() {
 function signup() {
     const email = document.getElementById('signupEmail').value;
     const password = document.getElementById('signupPassword').value;
-    
+
     if (email && password) {
-        // Save the user data (for simplicity, not using a database)
+        // Save the user data
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userPassword', password);
         alert('Signup successful!');
-        showLogin(); // Show the login form after signup
+        showLogin();
     } else {
         alert('Please enter both email and password');
     }
@@ -58,7 +68,7 @@ function login() {
 
     if (email === storedEmail && password === storedPassword) {
         alert('Login successful!');
-        showUniversitySelection(); // Show university selection after login
+        showUniversitySelection();
     } else {
         alert('Invalid login details');
     }
@@ -73,18 +83,19 @@ function showUniversitySelection() {
 
 // Handle university selection
 function selectUniversity() {
-    selectedUniversity = document.getElementById('universitySelect').value;
-    localStorage.setItem('selectedUniversity', selectedUniversity); // Save the selection
-    showProfilePage(); // Show the profile page after selecting university
+    const selectedUniversity = document.getElementById('universitySelect').value;
+    localStorage.setItem('selectedUniversity', selectedUniversity);
+    showProfilePage();
 }
 
 // Show user profile page and events
 function showProfilePage() {
-    document.getElementById('universitySelection').style.display = 'none';
     const userEmail = localStorage.getItem('userEmail');
     const userUniversity = localStorage.getItem('selectedUniversity');
-    const userBio = localStorage.getItem('userBio') || "No bio set yet."; // Default bio message
+    const userBio = localStorage.getItem('userBio') || "No bio set yet.";
 
+    document.getElementById('universitySelection').style.display = 'none';
+    document.getElementById('profilePage').style.display = 'block';
     document.getElementById('profileEmail').innerText = userEmail;
     document.getElementById('profileUniversity').innerText = userUniversity;
     document.getElementById('profileBio').innerText = userBio;
@@ -119,23 +130,11 @@ function updateBio() {
 // Open the profile modal
 function openProfileModal() {
     document.getElementById('profileModal').style.display = 'flex';
-    const userEmail = localStorage.getItem('userEmail');
-    const userUniversity = localStorage.getItem('selectedUniversity');
-    const userBio = localStorage.getItem('userBio') || "No bio set yet."; // Default bio message
-
-    document.getElementById('profileEmail').innerText = userEmail;
-    document.getElementById('profileUniversity').innerText = userUniversity;
-    document.getElementById('profileBio').innerText = userBio;
+    const userBio = localStorage.getItem('userBio') || "No bio set yet.";
+    document.getElementById('bioInput').value = userBio;
 }
 
 // Close the profile modal
 function closeProfileModal() {
     document.getElementById('profileModal').style.display = 'none';
-}
-
-// Logout function
-function logout() {
-    loggedIn = false;
-    document.getElementById('communityPage').style.display = 'none';
-    document.getElementById('auth').style.display = 'block';
 }

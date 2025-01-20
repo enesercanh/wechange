@@ -243,10 +243,10 @@
 
         function toggleNewsDetails(newsId) {
             var details = document.getElementById(newsId);
-            if (details.style.display === "block") {
-                details.style.display = "none";
-            } else {
+            if (details.style.display === "none") {
                 details.style.display = "block";
+            } else {
+                details.style.display = "none";
             }
         }
 

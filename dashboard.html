@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="dashboard">
-        <h2>Welcome, [User's Name]</h2>
+        <h2>Welcome, <span id="username"></span></h2>
         <div class="menu">
             <button onclick="showEvents()">Events</button>
             <button onclick="showRankings()">University Rankings</button>
@@ -43,8 +43,8 @@
         <!-- Profile Section -->
         <div id="profileSection" style="display:none;">
             <h3>Your Profile</h3>
-            <p>Name: [User's Name]</p>
-            <p>Email: [User's Email]</p>
+            <p>Name: <span id="profileName"></span></p>
+            <p>Email: <span id="profileEmail"></span></p>
             <button onclick="editProfile()">Edit Profile</button>
         </div>
 
@@ -67,6 +67,11 @@
     </div>
 
     <script>
+        // Display user's name from localStorage
+        document.getElementById('username').textContent = localStorage.getItem('username');
+        document.getElementById('profileName').textContent = localStorage.getItem('username');
+        document.getElementById('profileEmail').textContent = localStorage.getItem('userEmail');
+
         // Display events based on university selection
         function showEvents() {
             document.getElementById("eventsSection").style.display = "block";

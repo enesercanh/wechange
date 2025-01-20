@@ -2,6 +2,25 @@ let loggedIn = false;
 let selectedUniversity = "";
 let userBio = "";
 
+// Sample events for each university
+const events = {
+    "University of Baghdad Jadriya": [
+        "Event 1: Math Competition - February 10th",
+        "Event 2: Research Presentation - March 5th",
+        "Event 3: Career Fair - April 12th"
+    ],
+    "American University of Iraq Baghdad": [
+        "Event 1: Startup Workshop - February 15th",
+        "Event 2: International Conference - March 20th",
+        "Event 3: Art Exhibition - April 25th"
+    ],
+    "University of Technology": [
+        "Event 1: Robotics Workshop - February 20th",
+        "Event 2: Coding Bootcamp - March 10th",
+        "Event 3: Science Expo - April 18th"
+    ]
+};
+
 // Show the login form
 function showLogin() {
     document.getElementById('auth').style.display = 'none';
@@ -69,6 +88,25 @@ function showProfilePage() {
     document.getElementById('profileEmail').innerText = userEmail;
     document.getElementById('profileUniversity').innerText = userUniversity;
     document.getElementById('profileBio').innerText = userBio;
+
+    // Show events for the selected university
+    showEvents(userUniversity);
+}
+
+// Display events based on the selected university
+function showEvents(university) {
+    const updatesDiv = document.getElementById('updates');
+    updatesDiv.innerHTML = ''; // Clear any previous updates
+
+    if (events[university]) {
+        events[university].forEach(event => {
+            const eventElement = document.createElement('p');
+            eventElement.textContent = event;
+            updatesDiv.appendChild(eventElement);
+        });
+    } else {
+        updatesDiv.innerHTML = '<p>No events available.</p>';
+    }
 }
 
 // Update user bio

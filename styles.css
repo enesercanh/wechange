@@ -1,8 +1,7 @@
-/* Base Styles for Light Mode */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0faff; /* Light Blue Background */
-    color: #333;
+    background: linear-gradient(135deg, #00B4D8, #003366);
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -11,7 +10,7 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #ffffff; /* White Background */
+    background-color: #101d2f;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
@@ -19,7 +18,7 @@ body {
 .header h1 {
     text-align: center;
     font-size: 3rem;
-    color: #00bcd4; /* Light Blue for Header */
+    color: #fff;
 }
 
 .menu {
@@ -31,7 +30,7 @@ body {
 
 .menu-button {
     padding: 12px 24px;
-    background-color: #00bcd4; /* Light Blue Button */
+    background-color: #0066cc;
     border: none;
     border-radius: 8px;
     color: white;
@@ -43,31 +42,30 @@ body {
 }
 
 .menu-button:hover {
-    background-color: #0097a7; /* Slightly Darker Blue for Hover */
+    background-color: #004b8d;
     transform: translateY(-2px);
 }
 
 .content-section {
     margin-top: 30px;
     padding: 20px;
-    background-color: #ffffff; /* White Section Background */
+    background-color: #1e2d48;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #00bcd4; /* Light Blue Titles */
 }
 
 select {
     padding: 10px;
     font-size: 1rem;
-    background-color: #e0f7fa; /* Light Blue for Select */
+    background-color: #333;
     border-radius: 8px;
-    border: 1px solid #00bcd4; /* Light Blue Border */
-    color: #333;
+    border: 1px solid #005e9e;
+    color: #fff;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -78,7 +76,7 @@ ul {
 }
 
 .rank-list li {
-    background-color: #e0f7fa; /* Light Blue List Items */
+    background-color: #2c3e50;
     padding: 12px;
     margin-bottom: 8px;
     border-radius: 8px;
@@ -86,10 +84,10 @@ ul {
 }
 
 .profile-card {
-    background-color: #ffffff; /* White Profile Card */
+    background-color: #3c4d71;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .profile-card p {
@@ -98,7 +96,7 @@ ul {
 }
 
 .edit-profile {
-    background-color: #00bcd4; /* Light Blue for Edit Button */
+    background-color: #00bcd4;
     padding: 10px 20px;
     border-radius: 8px;
     color: white;
@@ -111,77 +109,14 @@ ul {
 }
 
 .edit-profile:hover {
-    background-color: #0097a7; /* Darker Blue for Hover */
+    background-color: #0097a7;
     transform: translateY(-2px);
 }
 
 .news-list li {
-    background-color: #e0f7fa; /* Light Blue News Items */
+    background-color: #34495e;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 8px;
     font-size: 1.1rem;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #121212;
-    color: #fff;
-}
-
-.dark-mode .dashboard-container {
-    background-color: #1e1e1e;
-    border-radius: 15px;
-}
-
-.dark-mode .header h1 {
-    color: #bb86fc; /* Light Purple for Dark Mode */
-}
-
-.dark-mode .menu-button {
-    background-color: #6200ea; /* Purple Button */
-    color: #fff;
-}
-
-.dark-mode .menu-button:hover {
-    background-color: #3700b3; /* Darker Purple */
-}
-
-.dark-mode .content-section {
-    background-color: #1e1e1e;
-}
-
-.dark-mode h2 {
-    color: #bb86fc; /* Light Purple Titles */
-}
-
-.dark-mode select {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #444;
-}
-
-.dark-mode ul {
-    list-style: none;
-    padding: 0;
-}
-
-.dark-mode .rank-list li {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode .profile-card {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode .edit-profile {
-    background-color: #6200ea; /* Purple for Edit Button */
-    color: white;
-}
-
-.dark-mode .news-list li {
-    background-color: #333;
-    color: #fff;
 }

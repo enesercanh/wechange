@@ -3,65 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>University Community</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Community Website</h1>
 
-        <div id="auth">
-            <button onclick="showLogin()">Login</button>
-            <button onclick="showSignup()">Signup</button>
-        </div>
+    <div id="auth">
+        <button onclick="showLogin()">Login</button>
+        <button onclick="showSignup()">Signup</button>
+    </div>
 
-        <div id="loginForm" style="display:none;">
-            <h2>Login</h2>
-            <input type="text" id="loginEmail" placeholder="Enter your email">
-            <input type="password" id="loginPassword" placeholder="Enter your password">
-            <button onclick="login()">Login</button>
-        </div>
+    <div id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="login()">Login</button>
+    </div>
 
-        <div id="signupForm" style="display:none;">
-            <h2>Signup</h2>
-            <input type="text" id="signupEmail" placeholder="Enter your email">
-            <input type="password" id="signupPassword" placeholder="Enter your password">
-            <button onclick="signup()">Signup</button>
-        </div>
+    <div id="signupForm">
+        <input type="email" id="signupEmail" placeholder="Email" />
+        <input type="password" id="signupPassword" placeholder="Password" />
+        <button onclick="signup()">Signup</button>
+    </div>
 
-        <div id="universitySelection" style="display:none;">
-            <h2>Select Your University</h2>
-            <select id="universitySelect">
-                <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
-                <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
-                <option value="University of Technology">University of Technology</option>
-            </select>
-            <button onclick="selectUniversity()">Confirm Selection</button>
-        </div>
+    <div id="universitySelection">
+        <h2>Select Your University</h2>
+        <select id="universitySelect">
+            <option value="University of Baghdad Jadriya">University of Baghdad Jadriya</option>
+            <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
+            <option value="University of Technology">University of Technology</option>
+        </select>
+        <button onclick="selectUniversity()">Confirm</button>
+    </div>
 
-        <!-- Floating Profile Button -->
-        <button id="profileBtn" class="profile-btn" onclick="openProfileModal()">👤</button>
+    <div id="profilePage">
+        <h2>Profile</h2>
+        <p>Email: <span id="profileEmail"></span></p>
+        <p>University: <span id="profileUniversity"></span></p>
+        <p>Bio: <span id="profileBio"></span></p>
+        <button onclick="openProfileModal()">Edit Profile</button>
 
-        <!-- Profile Modal -->
-        <div id="profileModal" class="profile-modal" style="display:none;">
-            <div class="profile-modal-content">
-                <h2>Your Profile</h2>
-                <p>Email: <span id="profileEmail"></span></p>
-                <p>University: <span id="profileUniversity"></span></p>
-                <p>Bio: <span id="profileBio"></span></p>
-                <textarea id="bioInput" placeholder="Update your bio..."></textarea>
-                <button onclick="updateBio()">Update Bio</button>
-                <button onclick="closeProfileModal()">Close</button>
-            </div>
-        </div>
+        <div id="updates"></div>
+    </div>
 
-        <div id="communityPage" style="display:none;">
-            <h2>Community Updates</h2>
-            <div id="updates"></div>
-            <button onclick="logout()">Logout</button>
+    <div id="profileModal">
+        <div class="content">
+            <h2>Edit Bio</h2>
+            <textarea id="bioInput" placeholder="Enter your bio"></textarea>
+            <button onclick="updateBio()">Save Bio</button>
+            <button onclick="closeProfileModal()">Close</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

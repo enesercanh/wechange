@@ -10,7 +10,7 @@
     .dashboard-container {
         max-width: 1200px;
         margin: 20px auto;
-        padding: 20px;
+        padding: 30px;
         background-color: #ffffff; /* White Background */
         border-radius: 15px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -18,8 +18,9 @@
 
     .header h1 {
         text-align: center;
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: #00bcd4; /* Light Blue for Header */
+        margin-bottom: 20px;
     }
 
     .menu {
@@ -27,10 +28,11 @@
         justify-content: space-between;
         flex-wrap: wrap;
         margin: 20px 0;
+        gap: 20px; /* Add gap between buttons */
     }
 
     .menu-button {
-        padding: 12px 24px;
+        padding: 14px 28px;
         background-color: #00bcd4; /* Light Blue Button */
         border: none;
         border-radius: 8px;
@@ -40,9 +42,7 @@
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 300px; /* Limits button width on mobile */
-        margin-bottom: 10px; /* Adds space between buttons */
+        width: 48%; /* Make buttons half-width on larger screens */
     }
 
     .menu-button:hover {
@@ -58,7 +58,7 @@
 
     .content-section {
         margin-top: 30px;
-        padding: 20px;
+        padding: 30px;
         background-color: #ffffff; /* White Section Background */
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -71,8 +71,8 @@
     }
 
     select {
-        padding: 10px;
-        font-size: 1rem;
+        padding: 12px;
+        font-size: 1.1rem;
         background-color: #e0f7fa; /* Light Blue for Select */
         border-radius: 8px;
         border: 1px solid #00bcd4; /* Light Blue Border */
@@ -88,10 +88,10 @@
 
     .rank-list li {
         background-color: #e0f7fa; /* Light Blue List Items */
-        padding: 12px;
-        margin-bottom: 8px;
+        padding: 14px;
+        margin-bottom: 10px;
         border-radius: 8px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         transition: background-color 0.3s ease;
     }
 
@@ -101,7 +101,7 @@
 
     .profile-card {
         background-color: #ffffff; /* White Profile Card */
-        padding: 20px;
+        padding: 25px;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
@@ -113,17 +113,17 @@
 
     .edit-profile {
         background-color: #00bcd4; /* Light Blue for Edit Button */
-        padding: 10px 20px;
+        padding: 12px 24px;
         border-radius: 8px;
         color: white;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         border: none;
         margin-top: 20px;
         width: 100%;
-        max-width: 300px; /* Limits button width */
+        max-width: 320px;
     }
 
     .edit-profile:hover {
@@ -139,10 +139,10 @@
 
     .news-list li {
         background-color: #e0f7fa; /* Light Blue News Items */
-        padding: 12px;
+        padding: 14px;
         margin-bottom: 10px;
         border-radius: 8px;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         transition: background-color 0.3s ease;
     }
 
@@ -150,18 +150,25 @@
         background-color: #b2ebf2; /* Light Blue Hover Effect */
     }
 
-    /* Mobile Responsive Adjustments */
+    /* Mobile and Tablet Responsive Adjustments */
+    @media (max-width: 1024px) {
+        .menu-button {
+            width: 45%;
+        }
+    }
+
     @media (max-width: 768px) {
         .menu {
             flex-direction: column;
             align-items: center;
+            gap: 10px;
         }
 
         .menu-button {
-            font-size: 1rem;
-            padding: 10px 20px;
             width: 90%;
-            max-width: 300px;
+            max-width: 400px;
+            font-size: 1rem;
+            padding: 12px 24px;
         }
 
         .header h1 {
@@ -173,11 +180,38 @@
         }
 
         .content-section, .profile-card {
-            padding: 15px;
+            padding: 20px;
         }
 
         select {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            padding: 12px;
+        }
+
+        .rank-list li, .news-list li {
+            font-size: 1rem;
+        }
+    }
+
+    /* Extra Mobile Adjustments */
+    @media (max-width: 480px) {
+        .header h1 {
+            font-size: 2rem;
+        }
+
+        .menu-button {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .rank-list li, .news-list li {
+            font-size: 1rem;
+            padding: 12px;
+        }
+
+        .edit-profile {
+            font-size: 1rem;
+            padding: 10px 20px;
         }
     }
 </style>

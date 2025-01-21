@@ -18,6 +18,97 @@
         .rank-list li, .event-list li {
             cursor: pointer;
         }
+        .chat-section {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 10px;
+
+            background-color: #f1f1f1;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+        }
+
+        .chat-window {
+
+            height: 300px;
+
+            overflow-y: auto;
+
+            border: 1px solid #ddd;
+
+            padding: 10px;
+
+            background-color: #fff;
+
+            margin-bottom: 10px;
+
+        }
+
+        .chat-input {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+        .chat-input input {
+
+            flex: 1;
+
+            padding: 8px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+        }
+
+        .chat-input button {
+
+            padding: 8px 15px;
+
+            background-color: #007bff;
+
+            color: #fff;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        .chat-input button:hover {
+
+            background-color: #0056b3;
+
+        }
+
+        .message {
+
+            margin-bottom: 10px;
+
+        }
+
+        .message .user {
+
+            font-weight: bold;
+
+        }
+
+        .message .text {
+
+            margin-left: 10px;
+
+        }
     </style>
 </head>
 <body>
@@ -75,7 +166,17 @@
                 <button class="edit-profile">Edit Profile</button>
             </div>
         </div>
+        <div id="chatSection" class="chat-section">
 
+            <h2>Chat</h2>
+
+            <div id="chatWindow" class="chat-window"></div>
+
+            <div class="chat-input">
+
+                <input type="text" id="chatMessage" placeholder="Type your message...">
+
+                <button onclick="sendMessage()">Send</button>
 <div id="newsSection" class="content-section" style="display:none;">
     <h2 class="news-heading">Latest News</h2>
     <ul id="newsList" class="news-list">
@@ -212,9 +313,9 @@
         }
 
         function goToChat() {
-            alert("Chat feature coming soon!");
-        }
 
+            toggleSections("chatSection");
+        
         function showNews() {
             toggleSections("newsSection");
         }
@@ -223,11 +324,14 @@
             toggleSections("contactSection");
         }
 
+        
         function toggleSections(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.style.display = "none");
+
+            const sections = document.querySelectorAll('.content-section, .chat-section');
+            sections.forEach(section => section.style.display = "none")
             document.getElementById(sectionId).style.display = "block";
         }
+    }
 
         function toggleEventDetails(detailsId) {
             const detailsElement = document.getElementById(detailsId);
@@ -236,6 +340,46 @@
             } else {
                 detailsElement.style.display = "block";
             }
+        }
+
+        function sendMessage() {
+
+            const messageInput = document.getElementById('chatMessage');
+
+            const message = messageInput.value.trim();
+
+            if (message) {
+
+                const chatWindow = document.getElementById('chatWindow');
+
+                const username = localStorage.getItem('username') || "User";
+
+
+
+                // Create message element
+
+                const messageElement = document.createElement('div');
+
+                messageElement.classList.add('message');
+
+                messageElement.innerHTML = `<span class="user">${username}:</span> <span class="text">${message}</span>`;
+
+
+
+                // Append message to chat window
+
+                chatWindow.appendChild(messageElement);
+
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+
+
+
+                // Clear input
+
+                messageInput.value = "";
+
+            }
+
         }
 
         function toggleNewsDetails(newsId) {

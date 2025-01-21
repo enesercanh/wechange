@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .university-details, .event-details {
+        .university-details {
             display: none;
             margin-top: 10px;
             padding: 10px;
@@ -15,7 +15,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .rank-list li, .event-list li {
+        .rank-list li {
             cursor: pointer;
         }
     </style>
@@ -43,7 +43,7 @@
                 <option value="American University of Iraq Baghdad">American University of Iraq Baghdad</option>
                 <option value="University of Technology">University of Technology</option>
             </select>
-            <div id="eventsList" class="event-list"></div>
+            <div id="eventsList"></div>
         </div>
 
         <div id="rankingsSection" class="content-section" style="display:none;">
@@ -77,125 +77,76 @@
         </div>
 
         <div id="newsSection" class="content-section" style="display:none;">
-            <h2 class="news-heading">Latest News</h2>
+            <h2>Latest News</h2>
             <ul id="newsList" class="news-list">
-                <li class="news-item" onclick="toggleNewsDetails('news1Details')">
-                    <div class="news-summary">
-                        <h3>University of Baghdad hosts a new research conference.</h3>
-                    </div>
-                    <div id="news1Details" class="news-details">
-                        <h3>Details:</h3>
-                        <p>By Haneen Abdulqader</p>
-                        <p>The University of Baghdad successfully hosted its inaugural Research Conference last week, bringing together experts, researchers, and students from across the nation to discuss and showcase innovative research. The event, held in the university's Main Conference Hall, was a tremendous success, providing a platform for in-depth discussions on various scientific, technological, and social issues.</p>
-                        <p>The conference kicked off with a keynote speech by Dr. Ahmed Al-Saadi, a leading researcher in the field of renewable energy, who emphasized the importance of collaborative research in solving the world's most pressing challenges. "Research is the key to unlocking the solutions to today's problems. It’s through sharing knowledge and working together that we can make lasting change," Dr. Al-Saadi remarked in his opening address.</p>
-                        <p>Over the course of the day, attendees were treated to a series of presentations and workshops that spanned a wide range of topics, including environmental sustainability, artificial intelligence, healthcare innovations, and social justice. The presentations showcased some of the latest research from Iraqi scholars, as well as contributions from international researchers who have collaborated with local institutions.</p>
-                        <p>One of the highlights of the conference was the session on "Technology for Social Good," where researchers presented new tools and applications aimed at addressing social challenges in Iraq. The session sparked lively discussions among students, academics, and professionals, all eager to explore how technology can be harnessed to create a more inclusive and sustainable society.</p>
-                        <p>In addition to the academic presentations, the conference also featured several panel discussions, providing a platform for thought leaders to engage in debates on the future of research in Iraq and the Middle East. These discussions covered topics such as funding for research, the role of academia in national development, and strategies for overcoming obstacles in research methodologies.</p>
-                        <p>The conference concluded with a closing ceremony, where the university's rector, Dr. Yaseen Al-Jabari, praised the event’s success and expressed the institution's commitment to fostering a culture of research and innovation. "This conference is only the beginning. We will continue to support research efforts that contribute to the development of Iraq and the global community," Dr. Al-Jabari stated.</p>
-                        <p>The event was widely regarded as a step forward for the academic community in Iraq, strengthening connections between universities, researchers, and industry professionals. As the conference came to a close, many attendees expressed their excitement for the future of research in Iraq, eager to collaborate and build upon the ideas shared during the event.</p>
-                    </div>
-                </li>
-                <li class="news-item" onclick="toggleNewsDetails('news2Details')">
-                    <div class="news-summary">
-                        <h3>American University of Iraq Baghdad launches a new career fair program.</h3>
-                    </div>
-                    <div id="news2Details" class="news-details">
-                        <h3>Details:</h3>
-                        <p>By Sami Taha</p>
-                        <p>The American University of Iraq, Baghdad (AUIB) has launched an exciting new career fair program aimed at connecting students with leading employers and offering valuable career development opportunities. The event, held in the university's main atrium, welcomed over 30 companies from a variety of sectors, including technology, finance, healthcare, and engineering.</p>
-                        <p>The inaugural career fair, which took place last Friday, drew hundreds of students eager to explore potential job and internship opportunities. The program was designed to not only provide students with direct access to employers but also to offer workshops and seminars on career planning, resume building, and interview techniques.</p>
-                        <p>In his opening remarks, Dr. Nabil Shakir, President of AUIB, emphasized the importance of bridging the gap between academic learning and professional success. "Our goal is to ensure that every student has the tools and resources they need to transition from the classroom to the workforce with confidence," Dr. Shakir stated.</p>
-                        <p>The career fair featured booths set up by top companies looking to recruit fresh talent from the university’s diverse pool of students. Among the prominent employers in attendance were leading companies in the oil and gas, telecommunications, and IT sectors, all of whom expressed their interest in recruiting talented young professionals from AUIB.</p>
-                        <p>Additionally, a series of career development workshops were held throughout the day, focusing on skills such as networking, job search strategies, and personal branding. These sessions provided students with practical tools and advice on how to succeed in the competitive job market.</p>
-                        <p>One of the most popular sessions was the "Personal Branding for Success" seminar, where students learned how to present themselves effectively to potential employers and maximize their chances of landing interviews. The session was led by a group of experienced HR professionals, who shared their insights on the recruitment process and offered practical tips on standing out from the crowd.</p>
-                        <p>As the career fair came to a close, many students expressed their excitement about the opportunities available to them, with several already securing interviews and internship placements. "I’m really glad I came to this career fair. I’ve made some valuable connections and learned a lot about how to approach the job market," said Mariam Al-Kadhim, an engineering student at AUIB.</p>
-                        <p>The success of the career fair is expected to pave the way for future events and programs aimed at strengthening the link between education and employment in Iraq. AUIB plans to make the career fair an annual event, providing students with even more opportunities to engage with potential employers and enhance their career prospects.</p>
-                    </div>
-                </li>
+                <li>University of Baghdad hosts a new research conference.</li>
+                <li>American University of Iraq Baghdad launches a new career fair program.</li>
+                <li>University of Technology students win national awards in tech innovation.</li>
             </ul>
         </div>
 
-        <div id="contactUsSection" class="content-section" style="display:none;">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or need assistance, please reach out to us via the following contact form:</p>
-            <form>
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+        <div id="contactSection" class="content-section" style="display:none;">
+            <h2>Contact We Change Executive</h2>
+            <p>If you have any issues, feel free to reach out to us:</p>
+            <p>Email: support@wechangeteam.org</p>
         </div>
     </div>
 
     <script>
+        document.getElementById('username').textContent = localStorage.getItem('username');
+        document.getElementById('profileName').textContent = localStorage.getItem('username');
+        document.getElementById('profileEmail').textContent = localStorage.getItem('userEmail');
+
         function showEvents() {
-            document.getElementById('eventsSection').style.display = 'block';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-            document.getElementById('contactUsSection').style.display = 'none';
-        }
-
-        function showRankings() {
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'block';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-            document.getElementById('contactUsSection').style.display = 'none';
-        }
-
-        function viewProfile() {
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'block';
-            document.getElementById('newsSection').style.display = 'none';
-            document.getElementById('contactUsSection').style.display = 'none';
-        }
-
-        function goToChat() {
-            alert("Redirecting to chat...");
-        }
-
-        function showNews() {
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'block';
-            document.getElementById('contactUsSection').style.display = 'none';
-        }
-
-        function contactUs() {
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-            document.getElementById('contactUsSection').style.display = 'block';
-        }
-
-        function toggleDetails(detailsId) {
-            var details = document.getElementById(detailsId);
-            details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
-        }
-
-        function toggleNewsDetails(newsId) {
-            var details = document.getElementById(newsId);
-            details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+            toggleSections("eventsSection");
         }
 
         function showUniversityEvents() {
-            const selectedUniversity = document.getElementById('universitySelect').value;
-            const eventsList = document.getElementById('eventsList');
-            eventsList.innerHTML = ''; // Clear existing events
-            
-            if (selectedUniversity === 'University of Baghdad Jadriya') {
-                eventsList.innerHTML = '<ul><li>Research Conference 2025</li><li>Engineering Symposium</li></ul>';
-            } else if (selectedUniversity === 'American University of Iraq Baghdad') {
-                eventsList.innerHTML = '<ul><li>Career Fair</li><li>Innovation Challenge</li></ul>';
-            } else if (selectedUniversity === 'University of Technology') {
-                eventsList.innerHTML = '<ul><li>Annual Tech Expo</li><li>Science Day</li></ul>';
+            const selectedUniversity = document.getElementById("universitySelect").value;
+            const eventsList = document.getElementById("eventsList");
+            if (selectedUniversity === "University of Baghdad Jadriya") {
+                eventsList.innerHTML = "<p>Event 1: Research Conference on AI</p><p>Event 2: Career Fair for Engineers</p>";
+            } else if (selectedUniversity === "American University of Iraq Baghdad") {
+                eventsList.innerHTML = "<p>Event 1: International Student Meet-up</p><p>Event 2: Business Entrepreneurship Workshop</p>";
+            } else if (selectedUniversity === "University of Technology") {
+                eventsList.innerHTML = "<p>Event 1: Robotics Innovation Hackathon</p><p>Event 2: Tech Symposium</p>";
+            } else {
+                eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
+            }
+        }
+
+        function showRankings() {
+            toggleSections("rankingsSection");
+        }
+
+        function viewProfile() {
+            toggleSections("profileSection");
+        }
+
+        function goToChat() {
+            alert("Chat feature coming soon!");
+        }
+
+        function showNews() {
+            toggleSections("newsSection");
+        }
+
+        function contactUs() {
+            toggleSections("contactSection");
+        }
+
+        function toggleSections(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function toggleDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
             }
         }
     </script>

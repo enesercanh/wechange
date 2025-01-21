@@ -23,6 +23,14 @@
         .rank-list li, .event-list li {
             cursor: pointer;
         }
+        #contactUsSection {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +110,13 @@
         </li>
     </ul>
 </div>
+            <div id="contactUsSection" class="content-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us at:</p>
+            <p><a href="mailto:wechange.iq@gmail.com">wechange.iq@gmail.com</a></p>
+        </div>
 
+    </div>
 <script>
     document.getElementById('username').textContent = localStorage.getItem('username');
     document.getElementById('profileName').textContent = localStorage.getItem('username');
@@ -189,7 +203,7 @@
     }
 
     function contactUs() {
-        toggleSections("contactSection");
+        document.getElementById('contactUsSection').style.display = 'block';
     }
 
     function toggleSections(sectionId) {

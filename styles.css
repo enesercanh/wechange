@@ -1,123 +1,183 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0faff; /* Light Blue Background */
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f0faff; /* Light Blue Background */
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
-.dashboard-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff; /* White Background */
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
+    .dashboard-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff; /* White Background */
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
 
-.header h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: #00bcd4; /* Light Blue for Header */
-}
+    .header h1 {
+        text-align: center;
+        font-size: 3rem;
+        color: #00bcd4; /* Light Blue for Header */
+    }
 
-.menu {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
 
-.menu-button {
-    padding: 12px 24px;
-    background-color: #00bcd4; /* Light Blue Button */
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+    .menu-button {
+        padding: 12px 24px;
+        background-color: #00bcd4; /* Light Blue Button */
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 300px; /* Limits button width on mobile */
+        margin-bottom: 10px; /* Adds space between buttons */
+    }
 
-.menu-button:hover {
-    background-color: #0097a7; /* Slightly Darker Blue for Hover */
-    transform: translateY(-2px);
-}
+    .menu-button:hover {
+        background-color: #0097a7; /* Slightly Darker Blue for Hover */
+        transform: translateY(-4px); /* Smooth hover effect */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    }
 
-.content-section {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #ffffff; /* White Section Background */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
+    .menu-button:active {
+        background-color: #007c8b; /* Darker Blue for Active */
+        transform: translateY(2px); /* Button push effect */
+    }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #00bcd4; /* Light Blue Titles */
-}
+    .content-section {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #ffffff; /* White Section Background */
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-select {
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #e0f7fa; /* Light Blue for Select */
-    border-radius: 8px;
-    border: 1px solid #00bcd4; /* Light Blue Border */
-    color: #333;
-    width: 100%;
-    margin-bottom: 20px;
-}
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #00bcd4; /* Light Blue Titles */
+    }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+    select {
+        padding: 10px;
+        font-size: 1rem;
+        background-color: #e0f7fa; /* Light Blue for Select */
+        border-radius: 8px;
+        border: 1px solid #00bcd4; /* Light Blue Border */
+        color: #333;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-.rank-list li {
-    background-color: #e0f7fa; /* Light Blue List Items */
-    padding: 12px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-}
+    ul {
+        list-style: none;
+        padding: 0;
+    }
 
-.profile-card {
-    background-color: #ffffff; /* White Profile Card */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    .rank-list li {
+        background-color: #e0f7fa; /* Light Blue List Items */
+        padding: 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
 
-.profile-card p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
+    .rank-list li:hover {
+        background-color: #b2ebf2; /* Light Blue Hover Effect */
+    }
 
-.edit-profile {
-    background-color: #00bcd4; /* Light Blue for Edit Button */
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    border: none;
-    margin-top: 20px;
-}
+    .profile-card {
+        background-color: #ffffff; /* White Profile Card */
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-.edit-profile:hover {
-    background-color: #0097a7; /* Darker Blue for Hover */
-    transform: translateY(-2px);
-}
+    .profile-card p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
 
-.news-list li {
-    background-color: #e0f7fa; /* Light Blue News Items */
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-}
+    .edit-profile {
+        background-color: #00bcd4; /* Light Blue for Edit Button */
+        padding: 10px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        border: none;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px; /* Limits button width */
+    }
+
+    .edit-profile:hover {
+        background-color: #0097a7; /* Darker Blue for Hover */
+        transform: translateY(-4px); /* Smooth hover effect */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .edit-profile:active {
+        background-color: #007c8b; /* Darker Blue for Active */
+        transform: translateY(2px); /* Button push effect */
+    }
+
+    .news-list li {
+        background-color: #e0f7fa; /* Light Blue News Items */
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .news-list li:hover {
+        background-color: #b2ebf2; /* Light Blue Hover Effect */
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+        .menu {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        .content-section, .profile-card {
+            padding: 15px;
+        }
+
+        select {
+            font-size: 0.9rem;
+        }
+    }
+</style>

@@ -112,80 +112,149 @@
                 <p>The new career fair program is expected to become a regular feature at AUIB, providing students with essential resources to help them achieve their career goals and strengthen their connections with the professional community.</p>
                         </div>
         </li>
+        <li class="news-item" onclick="toggleNewsDetails('news3Details')">
+            <div class="news-summary">
+                <h3>University of Technology students win national awards in tech innovation.</h3>
+            </div>
+            <div id="news3Details" class="news-details">
+                <h3>Details:</h3>
+                <p>By Anas Malik</p>
+                <p>Students from the University of Technology in Baghdad have triumphed at the National Tech Innovation Awards, taking home several top honors for their cutting-edge projects in technology. The event, held at the National Tech Expo earlier this week, celebrated the best tech innovations from across Iraq, with the University of Technology standing out for their contributions to robotics, AI, and sustainable engineering.</p>
+                <p>One of the most impressive projects was developed by a team of engineering students who created an intelligent waste management system designed to reduce urban waste through advanced sensor technologies and automated sorting. This innovative project caught the attention of the judges for its potential to address one of Iraq's growing environmental concerns. "Our goal was to find a technological solution that could directly impact the environment and contribute to building a sustainable future," said Sara Jassim, the project leader.</p>
+                <p>In addition, a group of computer science students received an award for developing an AI-powered app aimed at improving healthcare accessibility. The app, which uses machine learning algorithms, helps diagnose common medical conditions based on user symptoms, offering affordable healthcare assistance in remote and underserved areas. "We wanted to make healthcare more accessible and affordable for everyone, especially in rural communities," said Hassan Shakir, one of the developers.</p>
+                <p>The students' success at the national awards has already drawn praise from industry experts. Dr. Nadia Al-Mansoori, a well-known tech entrepreneur and one of the event’s judges, expressed her admiration for the students’ dedication and creativity. "The innovation showcased by these students is truly remarkable. Their work demonstrates not only technical skill but a deep commitment to solving real-world problems," she commented.</p>
+                <p>University of Technology’s President, Dr. Omar Al-Hassan, also celebrated the achievements, highlighting the institution's growing reputation for fostering talent in tech and innovation. "These awards are a testament to the hard work and dedication of our students and faculty. We are proud to contribute to Iraq's growing tech ecosystem and will continue to support our students in their future endeavors," Dr. Al-Hassan said during the closing ceremony.</p>
+                <p>The victory of these students marks a significant milestone for the University of Technology, reinforcing the importance of supporting and nurturing young innovators in Iraq. With these groundbreaking projects, the university's students are not only helping to shape the future of technology but are also making meaningful contributions to the development of Iraq’s economy and society.</p>
+            </div>
+        </li>
     </ul>
 </div>
 
-        </div>
-    </div>
 
     <script>
+        document.getElementById('username').textContent = localStorage.getItem('username');
+        document.getElementById('profileName').textContent = localStorage.getItem('username');
+        document.getElementById('profileEmail').textContent = localStorage.getItem('userEmail');
+
         function showEvents() {
-            document.getElementById('eventsSection').style.display = 'block';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-        }
-
-        function showRankings() {
-            document.getElementById('rankingsSection').style.display = 'block';
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-        }
-
-        function viewProfile() {
-            document.getElementById('profileSection').style.display = 'block';
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('newsSection').style.display = 'none';
-        }
-
-        function goToChat() {
-            alert("Redirecting to chat...");
-            // Add logic for redirecting to chat
-        }
-
-        function showNews() {
-            document.getElementById('newsSection').style.display = 'block';
-            document.getElementById('eventsSection').style.display = 'none';
-            document.getElementById('rankingsSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-        }
-
-        function contactUs() {
-            alert("Redirecting to Contact Us page...");
-            // Add logic for redirecting to Contact Us page
+            toggleSections("eventsSection");
         }
 
         function showUniversityEvents() {
-            var university = document.getElementById('universitySelect').value;
-            var events = {
-                'University of Baghdad Jadriya': ['Research Conference', 'Cultural Festival'],
-                'American University of Iraq Baghdad': ['Career Fair', 'Innovation Expo'],
-                'University of Technology': ['Tech Symposium', 'Engineering Workshop']
-            };
+            const selectedUniversity = document.getElementById("universitySelect").value;
+            const eventsList = document.getElementById("eventsList");
 
-            var eventList = document.getElementById('eventsList');
-            eventList.innerHTML = '';
-            if (university !== 'none') {
-                events[university].forEach(function(event) {
-                    var li = document.createElement('li');
-                    li.textContent = event;
-                    li.classList.add('event-item');
-                    eventList.appendChild(li);
-                });
+            if (selectedUniversity === "University of Baghdad Jadriya") {
+                eventsList.innerHTML = 
+                    <li onclick="toggleEventDetails('baghdadEvent1Details')">Research Conference on AI
+                        <div id="baghdadEvent1Details" class="event-details">
+                            <h3>Theme: "Innovating for Progress: Student Research for a Better Tomorrow"</h3>
+                            <p>Date: March 20, 2025 - 9:00 AM to 5:00 PM</p>
+                            <p>Location: University of Baghdad, Conference Hall</p>
+                            <p>Event Overview: This Research Conference is an opportunity for We Change members to showcase their research...</p>
+                            <p>Registration: Register by March 10, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                    <li onclick="toggleEventDetails('baghdadEvent2Details')">Career Fair for Engineers
+                        <div id="baghdadEvent2Details" class="event-details">
+                            <h3>Theme: "Building the Future: Engineering Careers for We Change Members"</h3>
+                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                            <p>Location: University of Baghdad, Engineering Building</p>
+                            <p>Event Overview: The Career Fair for Engineers is a We Change exclusive event...</p>
+                            <p>Registration: Sign up by April 3, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                ;
+            } else if (selectedUniversity === "American University of Iraq Baghdad") {
+                eventsList.innerHTML = 
+                    <li onclick="toggleEventDetails('auibEvent1Details')">International Student Meet-Up
+                        <div id="auibEvent1Details" class="event-details">
+                            <h3>Theme: "Cultural Connections: Building a Global Community at AUIB"</h3>
+                            <p>Date: March 22, 2025 - 5:00 PM to 8:00 PM</p>
+                            <p>Location: AUIB, Main Atrium</p>
+                            <p>Event Overview: A cultural meet-up for international students to share...</p>
+                            <p>Registration: Sign up by March 15, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                    <li onclick="toggleEventDetails('auibEvent2Details')">Business Entrepreneurship Workshop
+                        <div id="auibEvent2Details" class="event-details">
+                            <h3>Theme: "Empowering We Change Entrepreneurs: Turning Ideas Into Impact"</h3>
+                            <p>Date: April 10, 2025 - 10:00 AM to 3:00 PM</p>
+                            <p>Location: AUIB, Business and Innovation Center</p>
+                            <p>Event Overview: A workshop focused on essential entrepreneurship concepts...</p>
+                            <p>Registration: Register by April 3, 2025, via the We Change portal.</p>
+                        </div>
+                    </li>
+                ;
+            } else if (selectedUniversity === "University of Technology") {
+                eventsList.innerHTML = 
+                    <li onclick="toggleEventDetails('uotEvent1Details')">Robotics Innovation Hackathon
+                        <div id="uotEvent1Details" class="event-details">
+                            <h3>Theme: "Innovative Robotics Solutions by We Change Members"</h3>
+                            <p>Date: May 5-6, 2025 - 9:00 AM (Day 1) to 6:00 PM (Day 2)</p>
+                            <p>Location: University of Technology, Robotics and Automation Lab</p>
+                            <p>Event Overview: A hackathon for creating innovative robotics solutions...</p>
+                            <p>Registration: Register via the We Change portal.</p>
+                        </div>
+                    </li>
+                ;
+            } else {
+                eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
             }
         }
 
-        function toggleDetails(detailId) {
-            var details = document.getElementById(detailId);
-            details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+        function showRankings() {
+            toggleSections("rankingsSection");
         }
 
-        document.getElementById('username').textContent = "Enes"; // Change this dynamically based on user login
-        document.getElementById('profileName').textContent = "Enes"; // Replace with actual user profile data
-        document.getElementById('profileEmail').textContent = "enes@example.com"; // Replace with actual user email
+        function viewProfile() {
+            toggleSections("profileSection");
+        }
+
+        function goToChat() {
+            alert("Chat feature coming soon!");
+        }
+
+        function showNews() {
+            toggleSections("newsSection");
+        }
+
+        function contactUs() {
+            toggleSections("contactSection");
+        }
+
+        function toggleSections(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function toggleEventDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
+            }
+        }
+
+        function toggleNewsDetails(newsId) {
+            var details = document.getElementById(newsId);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+
+        function toggleDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.style.display === "block") {
+                detailsElement.style.display = "none";
+            } else {
+                detailsElement.style.display = "block";
+            }
+        }
     </script>
 </body>
-</html>
-
+</html>  

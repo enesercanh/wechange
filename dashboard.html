@@ -321,35 +321,6 @@ function saveMessage(message) {
             detailsElement.style.display = "block";
         }
     }
-
-    <script src="/socket.io/socket.io.js"></script>
-<script>
-    const socket = io();
-
-    socket.on('loadMessages', (messages) => {
-        messages.forEach((message) => displayMessage(message));
-    });
-
-    socket.on('newMessage', (message) => {
-        displayMessage(message);
-    });
-
-    function sendMessage() {
-        const messageInput = document.getElementById('chatInput');
-        const message = messageInput.value.trim();
-        
-        if (message) {
-            const user = localStorage.getItem('username');
-            const newMessage = { username: user, text: message, timestamp: new Date().toLocaleTimeString() };
-
-            // Emit the message to the server
-            socket.emit('sendMessage', newMessage);
-
-            // Update the chat window
-            displayMessage(newMessage);
-            messageInput.value = ''; // Clear input
-        }
-    }
 </script>
 </body>
 </html>

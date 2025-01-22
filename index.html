@@ -11,14 +11,9 @@
 
     <link rel="stylesheet" href="styles.css">
     <style>
-        body.light-mode {
+        body {
             background-color: #ffffff;
             color: #333333;
-        }
-
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
         }
 
         /* Fixed login form at the top */
@@ -62,20 +57,6 @@
         }
 
         .login-container button:hover {
-            background-color: #0056b3;
-        }
-
-        .toggle-theme-btn {
-            padding: 8px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .toggle-theme-btn:hover {
             background-color: #0056b3;
         }
 
@@ -143,7 +124,7 @@
         }
     </style>
 </head>
-<body id="body" class="light-mode">
+<body>
     <header>
         <div class="login-container">
             <form id="loginForm" onsubmit="loginUser(event)">
@@ -152,7 +133,6 @@
                 <button type="submit">Login</button>
             </form>
         </div>
-        <button id="toggleThemeBtn" class="toggle-theme-btn" onclick="toggleTheme()">Switch to Dark Mode</button>
     </header>
 
     <main>
@@ -228,32 +208,6 @@
                 alert("Invalid credentials");
             }
         }
-
-        function toggleTheme() {
-            const body = document.getElementById("body");
-            const currentTheme = body.classList.contains("light-mode") ? "light" : "dark";
-
-            if (currentTheme === "light") {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Light Mode";
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Dark Mode";
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        window.onload = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === "dark") {
-                document.getElementById("body").classList.remove("light-mode");
-                document.getElementById("body").classList.add("dark-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Light Mode";
-            }
-        };
     </script>
 </body>
 </html>

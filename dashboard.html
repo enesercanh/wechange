@@ -203,8 +203,9 @@
     }
 
     function contactUs() {
-        document.getElementById('contactUsSection').style.display = 'block';
+        toggleSections("contactUsSection");
     }
+
 
     function toggleSections(sectionId) {
         const sections = document.querySelectorAll('.content-section');

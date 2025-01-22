@@ -40,6 +40,10 @@
                 localStorage.setItem('username', 'Haneen');
                 localStorage.setItem('userEmail', email);
                 window.location.href = "dashboard.html"; // Redirect to the dashboard
+            } else if (email === "enesalhurmuzi@gmail.com" && password === "enes_password") { 
+                localStorage.setItem('username', 'Enes');
+                localStorage.setItem('userEmail', email);
+                window.location.href = "dashboard.html"; // Redirect to the dashboard
             } else {
                 alert("Invalid credentials");
             }

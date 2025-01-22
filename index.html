@@ -13,7 +13,7 @@
     <style>
         body.light-mode {
             background-color: #ffffff;
-            color: #000000;
+            color: #333333;
         }
 
         body.dark-mode {
@@ -21,6 +21,7 @@
             color: #ffffff;
         }
 
+        /* Fixed login form at the top */
         header {
             position: fixed;
             top: 0;
@@ -28,60 +29,117 @@
             width: 100%;
             background-color: #007bff;
             color: #ffffff;
-            padding: 10px 20px;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-        }
-
-        .login-container {
-            display: flex;
-            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .login-container form {
             display: flex;
-            gap: 5px;
+            gap: 10px;
+            align-items: center;
         }
 
         .login-container input, .login-container button {
-            padding: 5px;
-            border-radius: 3px;
+            padding: 8px 15px;
+            border-radius: 5px;
             border: none;
+            font-size: 1rem;
+        }
+
+        .login-container input {
+            width: 200px;
         }
 
         .login-container button {
             background-color: #0056b3;
             color: white;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .login-container button:hover {
             background-color: #004085;
         }
 
-        main {
-            margin-top: 80px;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #007bff;
-        }
-
         .toggle-theme-btn {
-            padding: 5px 10px;
+            padding: 8px 20px;
             background-color: #0056b3;
             color: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .toggle-theme-btn:hover {
             background-color: #004085;
+        }
+
+        main {
+            margin-top: 100px; /* Adding space for the fixed header */
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2, p {
+            text-align: center;
+            color: #007bff;
+        }
+
+        section {
+            background-color: #f7f9fc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        ul li::before {
+            content: "• ";
+            color: #007bff;
+        }
+
+        .impact-section {
+            background-color: #dbe9ff;
+        }
+
+        .vision, .mission, .impact {
+            color: #333333;
+        }
+
+        .get-involved-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .get-involved-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -100,21 +158,51 @@
     <main>
         <h1>Welcome to We Change</h1>
         <p>
-            <strong>We Change</strong> is a nonprofit organization dedicated to providing Iraqi youth with
-            opportunities for personal and professional growth. Through various initiatives, we aim to foster a sense of
-            community and empower individuals to make a positive impact in their society.
+            <strong>We Change</strong> is a nonprofit organization dedicated to empowering Iraqi youth by providing opportunities
+            for personal growth, education, and community engagement. Through our programs, we strive to create a brighter,
+            more inclusive future for Iraq.
         </p>
-        <h2>Our Programs</h2>
-        <ul>
-            <li>Charity events to support underprivileged communities</li>
-            <li>Research programs that encourage innovative thinking</li>
-            <li>Educational trips to broaden horizons and experiences</li>
-            <li>Book clubs for intellectual engagement</li>
-            <li>Career exploration and guidance</li>
-        </ul>
-        <p>
-            Join us in our mission to create a brighter future for Iraq. Together, we can bring about meaningful change!
-        </p>
+
+        <!-- Vision Section -->
+        <section class="vision">
+            <h2>Our Vision</h2>
+            <p>To create a vibrant, inclusive, and empowered generation of Iraqi youth who are capable of driving positive change in their communities.</p>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission">
+            <h2>Our Mission</h2>
+            <p>We aim to empower young Iraqis by offering them valuable educational experiences, career guidance, and community-driven initiatives that build their confidence and leadership skills.</p>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="programs">
+            <h2>Our Programs</h2>
+            <ul>
+                <li>Charity events to support underprivileged communities.</li>
+                <li>Research programs that promote innovative thinking and problem-solving.</li>
+                <li>Educational trips for cultural enrichment and intellectual growth.</li>
+                <li>Book clubs that encourage reading, discussion, and critical thinking.</li>
+                <li>Career exploration and internships to provide real-world experience.</li>
+            </ul>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="impact impact-section">
+            <h2>Our Impact</h2>
+            <p>
+                Since our inception, We Change has:
+            </p>
+            <ul>
+                <li>Supported over 500 young people in various community projects.</li>
+                <li>Organized 20+ educational events and workshops.</li>
+                <li>Empowered youth to take leadership roles in their communities.</li>
+                <li>Contributed to the personal growth and professional development of our members.</li>
+            </ul>
+        </section>
+
+        <!-- Get Involved Section -->
+        <a href="volunteer.html" class="get-involved-btn">Get Involved</a>
     </main>
 
     <script>

@@ -3,190 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Change - Empowering the Future</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.jpg" type="image/jpeg">
-
-    <!-- Styles -->
+    <meta name="description" content="We Change - Empowering Iraqi Youth through extracurricular activities, charity, and education.">
+    <meta name="keywords" content="We Change, Iraq, youth, education, charity, research, extracurricular, empowerment">
+    <meta name="author" content="We Change Organization">
+    <title>We Change | Empowering Youth in Iraq</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f9;
+            padding: 0;
+            background: #ffffff; /* White background */
             color: #333;
         }
-
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #333;
+            background: #007BFF; /* Strong blue header */
             color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        #loginForm {
-            display: flex;
-            align-items: center;
-        }
-
-        #loginForm input {
-            margin: 0 5px;
-            padding: 5px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        #loginForm button {
-            background: #5cb85c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        #loginForm button:hover {
-            background: #4cae4c;
-        }
-
-        #toggleThemeBtn {
-            background: #5bc0de;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        #toggleThemeBtn:hover {
-            background: #46b8da;
-        }
-
-        main {
-            margin-top: 80px; /* Push content below the fixed header */
-            padding: 20px;
-        }
-
-        section {
-            margin-bottom: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
+            padding: 2em;
             text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+            font-weight: 400;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0056b3; /* Darker blue for nav */
+            padding: 0.8em;
+        }
+        nav a {
             color: white;
+            padding: 1.2em 2em;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        nav a:hover {
+            background: #007BFF;
+            transition: background 0.3s ease;
+        }
+        .hero {
+            text-align: center;
+            padding: 3em 2em;
+            background: #e3f2fd; /* Light blue background */
+            color: #0056b3;
+        }
+        .hero h1, .hero p {
+            color: #0056b3;
+        }
+        .content-section {
+            padding: 4em 2em;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .content-section h2 {
+            color: #0056b3;
+            margin-bottom: 1em;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        .content-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto 2em;
+        }
+        .card {
+            background: white;
+            border: 2px solid #007BFF;
+            margin: 1em;
+            padding: 2em;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 400px;
+            margin-bottom: 2em;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #0056b3;
+        }
+        .card h3 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+            color: #0056b3;
+        }
+        .card p {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .footer {
+            background: #0056b3;
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-top: 3em;
+        }
+        .footer a {
+            color: #e3f2fd;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 3em 1em;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .card {
+                max-width: 100%;
+                padding: 1.5em;
+            }
         }
     </style>
 </head>
-<body id="body" class="light-mode">
-    <!-- Header with Login -->
-    <header>
-        <h1>We Change</h1>
-        <form id="loginForm" onsubmit="loginUser(event)">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <button id="toggleThemeBtn" type="button" onclick="toggleTheme()">Switch to Dark Mode</button>
-        </form>
-    </header>
+<body>
 
-    <!-- Main Content -->
-    <main>
-        <!-- About Section -->
-        <section id="about">
-            <h2>About We Change</h2>
-            <p>We Change is a nonprofit organization committed to empowering Iraqi youth through extracurricular activities, research programs, and career development opportunities. Our mission is to inspire and support the next generation of leaders.</p>
-        </section>
+<header>
+    <h1>We Change</h1>
+    <p>Empowering Iraqi Youth for a Better Future</p>
+</header>
 
-        <!-- Activities Section -->
-        <section id="activities">
-            <h2>Our Activities</h2>
-            <ul>
-                <li>Charity events to support local communities.</li>
-                <li>Research programs to foster innovation.</li>
-                <li>Educational trips for experiential learning.</li>
-                <li>Book clubs to promote reading culture.</li>
-                <li>Career experience opportunities for students.</li>
-            </ul>
-        </section>
-    </main>
+<nav>
+    <a href="#about">About Us</a>
+    <a href="#activities">Our Activities</a>
+    <a href="#join">Join Us</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 We Change. All rights reserved.</p>
-    </footer>
+<div class="hero">
+    <h1>Welcome to We Change</h1>
+    <p>Empowering the youth of Iraq through education, charity, and extracurricular activities.</p>
+</div>
 
-    <!-- Scripts -->
-    <script>
-        function loginUser(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            
-            // Dummy check for the credentials
-            if (email === "faosa414@gmail.com" && password === "Faos@2025Str0ngPass") {
-                localStorage.setItem('username', 'Sami');
-                localStorage.setItem('userEmail', email);
-                window.location.href = "dashboard.html"; // Redirect to the dashboard
-            } else if (email === "laviier1994@gmail.com" && password === "L@vi1er1994_StrongPwd") {
-                localStorage.setItem('username', 'Haneen');
-                localStorage.setItem('userEmail', email);
-                window.location.href = "dashboard.html"; // Redirect to the dashboard
-            } else if (email === "enesalhurmuzi@gmail.com" && password === "enes") { 
-                localStorage.setItem('username', 'Enes');
-                localStorage.setItem('userEmail', email);
-                window.location.href = "dashboard.html"; // Redirect to the dashboard
-            } else {
-                alert("Invalid credentials");
-            }
-        }
+<section id="about" class="content-section">
+    <h2>About Us</h2>
+    <p>We Change is a nongovernmental organization based in Iraq, founded to inspire and empower young people. Our mission is to provide opportunities for self-growth, learning, and community engagement through a range of initiatives. From research programs to educational trips, charity events, and book clubs, we strive to bring meaningful change to our community.</p>
+</section>
 
-        function toggleTheme() {
-            const body = document.getElementById("body");
-            const currentTheme = body.classList.contains("light-mode") ? "light" : "dark";
-            
-            if (currentTheme === "light") {
-                body.classList.remove("light-mode");
-                body.classList.add("dark-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Light Mode";
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Dark Mode";
-                localStorage.setItem('theme', 'light');
-            }
-        }
+<section id="activities" class="content-section">
+    <h2>Our Activities</h2>
+    <div class="card">
+        <h3>Research Programs</h3>
+        <p>Collaborate on projects that address pressing issues in Iraq and contribute to the advancement of knowledge.</p>
+    </div>
+    <div class="card">
+        <h3>Educational Trips</h3>
+        <p>Explore new horizons and gain hands-on experiences through immersive learning journeys.</p>
+    </div>
+    <div class="card">
+        <h3>Charity Events</h3>
+        <p>Give back to the community through impactful initiatives that support those in need.</p>
+    </div>
+    <div class="card">
+        <h3>Book Clubs</h3>
+        <p>Foster a love for reading and critical thinking among youth to nurture future leaders.</p>
+    </div>
+    <div class="card">
+        <h3>Career Experience</h3>
+        <p>Prepare for the future with hands-on opportunities and mentorship to enhance career skills.</p>
+    </div>
+</section>
 
-        window.onload = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === "dark") {
-                document.getElementById("body").classList.remove("light-mode");
-                document.getElementById("body").classList.add("dark-mode");
-                document.getElementById("toggleThemeBtn").textContent = "Switch to Light Mode";
-            }
-        };
-    </script>
+<section id="join" class="content-section">
+    <h2>Join Us</h2>
+    <p>Be a part of the change! Whether as a volunteer, representative, or participant, there are many ways to get involved. Together, we can make a difference.</p>
+</section>
+
+<section id="contact" class="content-section">
+    <h2>Contact Us</h2>
+    <p>Email us at: <a href="mailto:info@wechangeiq.com">info@wechangeiq.com</a></p>
+    <p>Follow us on social media for updates and opportunities.</p>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 We Change. All Rights Reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
 </body>
 </html>

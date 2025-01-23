@@ -239,12 +239,12 @@
     }
 
     function goToChat() {
-    toggleSections("chatSection");
-    loadChatMessages();
+        toggleSections("chatSection");
+        loadChatMessages();
     }
 </script>
 
-    <script src="/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
     const socket = io();
 
@@ -273,7 +273,7 @@
         }
     }
 </script>
-    
+
 <script>
     function showNews() {
         toggleSections("newsSection");
@@ -282,7 +282,6 @@
     function contactUs() {
         toggleSections("contactUsSection");
     }
-
 
     function toggleSections(sectionId) {
         const sections = document.querySelectorAll('.content-section');
@@ -300,7 +299,7 @@
     }
 
     function toggleNewsDetails(newsId) {
-        var details = document.getElementById(newsId);
+        const details = document.getElementById(newsId);
         if (details.style.display === "none") {
             details.style.display = "block";
         } else {

@@ -232,7 +232,8 @@
     function showRankings() {
         toggleSections("rankingsSection");
     }
-
+    
+<script>
     function viewProfile() {
         toggleSections("profileSection");
     }
@@ -241,45 +242,39 @@
     toggleSections("chatSection");
     loadChatMessages();
     }
+</script>
 
-function sendMessage() {
-    const messageInput = document.getElementById('chatInput');
-    const message = messageInput.value.trim();
-    
-    if (message) {
-        const user = localStorage.getItem('username');
-        const newMessage = { username: user, text: message, timestamp: new Date().toLocaleTimeString() };
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
 
-        // Save the message locally or send it to the server (Backend implementation needed)
-        saveMessage(newMessage);
+    socket.on('loadMessages', (messages) => {
+        messages.forEach((message) => displayMessage(message));
+    });
 
-        // Update the chat window with the new message
-        displayMessage(newMessage);
-        messageInput.value = ''; // Clear the input
+    socket.on('newMessage', (message) => {
+        displayMessage(message);
+    });
+
+    function sendMessage() {
+        const messageInput = document.getElementById('chatInput');
+        const message = messageInput.value.trim();
+        
+        if (message) {
+            const user = localStorage.getItem('username');
+            const newMessage = { username: user, text: message, timestamp: new Date().toLocaleTimeString() };
+
+            // Emit the message to the server
+            socket.emit('sendMessage', newMessage);
+
+            // Update the chat window
+            displayMessage(newMessage);
+            messageInput.value = ''; // Clear input
+        }
     }
-}
-
-function loadChatMessages() {
-    // Load messages from local storage or from a server (Backend implementation needed)
-    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    chatMessages.forEach(message => displayMessage(message));
-}
-
-function displayMessage(message) {
-    const chatMessagesContainer = document.getElementById('chatMessages');
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message');
-    messageElement.innerHTML = `<strong>${message.username}</strong> (${message.timestamp}): <p>${message.text}</p>`;
-    chatMessagesContainer.appendChild(messageElement);
-}
-
-function saveMessage(message) {
-    // Save the message to local storage (or server-side storage if you have a backend)
-    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-    chatMessages.push(message);
-    localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
-}
-
+</script>
+    
+<script>
     function showNews() {
         toggleSections("newsSection");
     }

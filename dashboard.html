@@ -228,12 +228,11 @@
             eventsList.innerHTML = "<p>Select a valid university to see events.</p>";
         }
     }
-
+ 
     function showRankings() {
         toggleSections("rankingsSection");
     }
     
-<script>
     function viewProfile() {
         toggleSections("profileSection");
     }
@@ -242,19 +241,6 @@
         toggleSections("chatSection");
         loadChatMessages();
     }
-</script>
-
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    const socket = io();
-
-    socket.on('loadMessages', (messages) => {
-        messages.forEach((message) => displayMessage(message));
-    });
-
-    socket.on('newMessage', (message) => {
-        displayMessage(message);
-    });
 
     function sendMessage() {
         const messageInput = document.getElementById('chatInput');
@@ -272,9 +258,7 @@
             messageInput.value = ''; // Clear input
         }
     }
-</script>
 
-<script>
     function showNews() {
         toggleSections("newsSection");
     }

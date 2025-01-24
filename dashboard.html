@@ -241,8 +241,7 @@
     toggleSections("chatSection");
     loadChatMessages();
 }
-    <script src="http://wechangeiq.com/socket.io/socket.io.js"></script>
-<script>
+
     const socket = io('http://wechangeiq.com'); // Adjust this URL if necessary
 
     socket.on('loadMessages', (messages) => {
@@ -276,8 +275,6 @@
         messageElement.textContent = `[${message.timestamp}] ${message.username}: ${message.text}`;
         chatBox.appendChild(messageElement);
     }
-</script>
-<script>
     
     function showNews() {
         toggleSections("newsSection");

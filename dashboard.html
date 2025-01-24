@@ -241,8 +241,7 @@
     toggleSections("chatSection");
     loadChatMessages();
 }
-    
-<script>
+
     const socket = io();
 
     socket.on('loadMessages', (messages) => {

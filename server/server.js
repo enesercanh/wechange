@@ -1,32 +1,36 @@
 const express = require('express');
-const socketIo = require('socket.io');
 const http = require('http');
+const socketIo = require('socket.io');
 
+// Create an express app
 const app = express();
+
+// Create the server
 const server = http.createServer(app);
+
+// Initialize Socket.IO with the server
 const io = socketIo(server);
 
-app.use(express.static('public'));
+// Serve static files (HTML, JS, CSS, etc.)
+app.use(express.static('public'));  // Make sure your public files are in a folder named 'public'
 
-let messages = [];
-
+// Handle socket connection
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('A user connected');
     
-    // Send previous messages to the new user
-    socket.emit('loadMessages', messages);
-
-    // Listen for new messages
+    // Listen for messages from the client and emit them back to all clients
     socket.on('sendMessage', (message) => {
-        messages.push(message);
-        io.emit('newMessage', message);  // Broadcast new message to all users
+        io.emit('newMessage', message); // Send the message to all connected clients
     });
 
+    // Handle socket disconnect
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        console.log('A user disconnected');
     });
 });
 
-server.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+// Start the server
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

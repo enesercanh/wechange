@@ -241,6 +241,19 @@
     toggleSections("chatSection");
     loadChatMessages();
 }
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    const socket = io();
+
+    socket.on('loadMessages', (messages) => {
+        messages.forEach((message) => displayMessage(message));
+    });
+
+    socket.on('newMessage', (message) => {
+        displayMessage(message);
+    });
+
 
 function sendMessage() {
     const messageInput = document.getElementById('chatInput');

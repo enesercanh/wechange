@@ -1,38 +1,32 @@
 const express = require('express');
+const socketIo = require('socket.io');
 const http = require('http');
-const { Server } = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = socketIo(server);
 
-let users = {}; // Store connected users
+app.use(express.static('public'));
+
+let messages = [];
 
 io.on('connection', (socket) => {
-    console.log('A user connected:', socket.id);
+    console.log('a user connected');
+    
+    // Send previous messages to the new user
+    socket.emit('loadMessages', messages);
 
-    // Store user details
-    socket.on('user-login', (userId) => {
-        users[userId] = socket.id;
+    // Listen for new messages
+    socket.on('sendMessage', (message) => {
+        messages.push(message);
+        io.emit('newMessage', message);  // Broadcast new message to all users
     });
 
-    // Handle message sending
-    socket.on('send-message', ({ senderId, receiverId, message }) => {
-        const receiverSocket = users[receiverId];
-        if (receiverSocket) {
-            io.to(receiverSocket).emit('receive-message', { senderId, message });
-        }
-    });
-
-    // Handle disconnect
     socket.on('disconnect', () => {
-        console.log('User disconnected:', socket.id);
-        Object.keys(users).forEach((key) => {
-            if (users[key] === socket.id) delete users[key];
-        });
+        console.log('user disconnected');
     });
 });
 
 server.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+    console.log('Server is running on http://localhost:3000');
 });

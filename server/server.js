@@ -1,36 +1,46 @@
 const express = require('express');
+const path = require('path');
 const http = require('http');
 const socketIo = require('socket.io');
 
-// Create an express app
+// Initialize the app and create the server
 const app = express();
-
-// Create the server
 const server = http.createServer(app);
-
-// Initialize Socket.IO with the server
 const io = socketIo(server);
 
-// Serve static files (HTML, JS, CSS, etc.)
-app.use(express.static('public'));  // Make sure your public files are in a folder named 'public'
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Handle socket connection
+// Socket.io connection handling
 io.on('connection', (socket) => {
-    console.log('A user connected');
-    
-    // Listen for messages from the client and emit them back to all clients
+    console.log('New client connected');
+
+    // Send a welcome message to the connected user
+    socket.emit('loadMessages', [
+        { username: 'System', text: 'Welcome to the chat!', timestamp: new Date().toLocaleTimeString() },
+    ]);
+
+    // Listen for messages from the client
     socket.on('sendMessage', (message) => {
-        io.emit('newMessage', message); // Send the message to all connected clients
+        console.log('Received message:', message);
+
+        // Broadcast the message to all connected clients
+        io.emit('newMessage', message);
     });
 
-    // Handle socket disconnect
+    // Handle client disconnection
     socket.on('disconnect', () => {
-        console.log('A user disconnected');
+        console.log('Client disconnected');
     });
+});
+
+// Default route for invalid endpoints
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 });
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

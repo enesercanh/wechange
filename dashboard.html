@@ -252,46 +252,39 @@
     socket.on('newMessage', (message) => {
         displayMessage(message);
     });
-
-    <script>
+        
         // Function to store the user's name and university
         function setUserInfo(name, university) {
             localStorage.setItem('userName', name);
             localStorage.setItem('userUniversity', university);
         }
 
-        // Example: Set the user's name and university (you would do this when the user logs in or selects info)
-        setUserInfo('Enes', 'University of Baghdad');
-
-        // Send message function
-        function sendMessage() {
-            const messageInput = document.getElementById('chatInput');
-            const chatMessages = document.getElementById('chatMessages');
-            const message = messageInput.value.trim();
-            
-            if (message !== '') {
-                // Retrieve the user's name and university from localStorage
-                const userName = localStorage.getItem('userName');
-                const userUniversity = localStorage.getItem('userUniversity');
-                
-                // If either the name or university is not set, show an alert and stop
-                if (!userName || !userUniversity) {
-                    alert('Please set your name and university!');
-                    return;
-                }
-                
-                // Create and display the message with both name and university
-                const newMessage = document.createElement('div');
-                newMessage.classList.add('chat-message');
-                newMessage.innerHTML = `<strong>${userName} (${userUniversity}):</strong> ${message}`;
-                
-                chatMessages.appendChild(newMessage);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                messageInput.value = ''; // Clear the input field
-            }
+       function sendMessage() {
+    const messageInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+    const message = messageInput.value.trim();
+    
+    if (message !== '') {
+        // Get the university from localStorage
+        const userUniversity = localStorage.getItem('userUniversity');
+        
+        // If the university is null (meaning it's not set), set a default value
+        if (!userUniversity) {
+            alert('University not set!');
+            return; // Prevent sending a message without university info
         }
-
+        
+        // Create and display message
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('chat-message');
+        newMessage.innerHTML = `<strong>${userUniversity}:</strong> ${message}`;
+        
+        chatMessages.appendChild(newMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        messageInput.value = ''; // Clear input field
+    }
+}
 
     function displayMessage(message) {
         const chatBox = document.getElementById('chatBox');

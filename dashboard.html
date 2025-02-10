@@ -253,21 +253,32 @@
     });
 
     function sendMessage() {
-        const messageInput = document.getElementById('chatInput');
-        const message = messageInput.value.trim();
-
-        if (message) {
-            const user = localStorage.getItem('username');
-            const newMessage = { username: user, text: message, timestamp: new Date().toLocaleTimeString() };
-
-            // Emit the message to the server
-            socket.emit('sendMessage', newMessage);
-
-            // Update the chat window
-            displayMessage(newMessage);
-            messageInput.value = ''; // Clear input
-        }
+    const messageInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+    
+    // Get the message from the input field
+    const message = messageInput.value.trim();
+    
+    if (message !== '') {
+        // Get the university from localStorage
+        const userUniversity = localStorage.getItem('userUniversity');
+        
+        // Create a new chat message with the university and the user's message
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('chat-message');
+        newMessage.innerHTML = `<strong>${userUniversity}:</strong> ${message}`;
+        
+        // Append the new message to the chat messages container
+        chatMessages.appendChild(newMessage);
+        
+        // Scroll to the bottom of the chat
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Clear the input field
+        messageInput.value = '';
     }
+}
+
 
     function displayMessage(message) {
         const chatBox = document.getElementById('chatBox');
